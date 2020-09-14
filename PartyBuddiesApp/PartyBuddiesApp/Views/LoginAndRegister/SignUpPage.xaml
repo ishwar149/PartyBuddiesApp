@@ -1,0 +1,215 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<ContentPage
+    x:Class="PartyBuddiesApp.Views.LoginAndRegister.SignUpPage"
+    xmlns="http://xamarin.com/schemas/2014/forms"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:border="clr-namespace:Syncfusion.XForms.Border;assembly=Syncfusion.Core.XForms"
+    xmlns:buttons="clr-namespace:Syncfusion.XForms.Buttons;assembly=Syncfusion.Buttons.XForms"
+    xmlns:SfCalendar="clr-namespace:Syncfusion.SfCalendar.XForms;assembly=Syncfusion.SfCalendar.XForms"
+    xmlns:control="clr-namespace:PartyBuddiesApp.Controls"
+    xmlns:converter="clr-namespace:PartyBuddiesApp.Converters"
+    xmlns:core="clr-namespace:Syncfusion.XForms.Core;assembly=Syncfusion.Core.XForms"
+    xmlns:local="clr-namespace:PartyBuddiesApp.Views.Forms"
+    xmlns:viewModel="clr-namespace:PartyBuddiesApp.ViewModels.LoginAndRegister"
+    xmlns:ImgResource="clr-namespace:PartyBuddiesApp.Images;assembly=PartyBuddiesApp"
+    Title="Sign Up"
+    BackgroundColor="{DynamicResource SnowWhite}"
+    NavigationPage.HasNavigationBar="False">
+
+    <ContentPage.Resources>
+        <ResourceDictionary>
+            <converter:BooleanToColorConverter x:Key="ColorConverter" />
+            <ResourceDictionary.MergedDictionaries>
+                <ResourceDictionary Source="/Views/Forms/Styles.xaml" />
+            </ResourceDictionary.MergedDictionaries>
+        </ResourceDictionary>
+    </ContentPage.Resources>
+
+    <!--  Binding context for sign-up page  -->
+    <ContentPage.BindingContext>
+        <viewModel:SignUpPageViewModel />
+    </ContentPage.BindingContext>
+
+    <ContentPage.Content>
+        <ScrollView HorizontalOptions="Center">
+            <ScrollView.VerticalOptions>
+                <OnIdiom
+                    x:TypeArguments="LayoutOptions"
+                    Default="CenterAndExpand"
+                    Phone="FillAndExpand" />
+            </ScrollView.VerticalOptions>
+
+            <StackLayout Margin="10,0,10,0">
+                <StackLayout HorizontalOptions="Center">
+                   <StackLayout HorizontalOptions="Center">
+                        <!-- Party Buddies Icon   -->
+                        <Image HorizontalOptions="Center" Source="{ImgResource:ImageResource PartyBuddiesApp.Images.PartyBuddies.PNG}" ></Image>
+
+                        <!--  Label to display the title of this page  -->
+                        <Label
+                        FontFamily="{StaticResource Montserrat-SemiBold}"
+                        FontSize="20"
+                        HorizontalOptions="Center"
+                        Style="{StaticResource LabelStyle}"
+                        Text="Party Buddies"
+                        TextColor="{DynamicResource Gray-900}" />
+                        
+                        
+                        <!--  Label to display the title of this page  -->
+                        <Label
+                        FontFamily="{StaticResource Montserrat-SemiBold}"
+                        FontSize="20"
+                        HorizontalOptions="Center"
+                        Style="{StaticResource LabelStyle}"
+                        Text="Sign Up"
+                        TextColor="{DynamicResource Gray-900}" />
+                    </StackLayout>
+
+                    <StackLayout HorizontalOptions="Center" Spacing="14">
+                        <!--  Entry to get username from user  -->
+                        <border:SfBorder
+                        BackgroundColor="{DynamicResource Gray-White}"
+                        BorderColor="{Binding Source={x:Reference NameEntry}, Path=IsFocused, Converter={StaticResource ColorConverter}, ConverterParameter=3}"
+                        Style="{StaticResource SfBorderStyle}">
+                            <control:BorderlessEntry
+                            x:Name="NameEntry"
+                            Placeholder="Name"
+                            PlaceholderColor="{DynamicResource Gray-700}"
+                            Style="{StaticResource EntryStyle}"
+                            Text="{Binding Name}"
+                            TextColor="{DynamicResource Gray-900}" />
+                        </border:SfBorder>
+
+                        <!--  Entry to get email ID from user  -->
+                        <local:SimpleEmailEntry />
+
+
+                        <!--  Entry to get Mobile Number from user  -->
+                        <border:SfBorder
+                        BackgroundColor="{DynamicResource Gray-White}"
+                        BorderColor="{Binding Source={x:Reference NameEntry}, Path=IsFocused, Converter={StaticResource ColorConverter}, ConverterParameter=3}"
+                        Style="{StaticResource SfBorderStyle}">
+                            <control:BorderlessEntry
+                            x:Name="MonbileNumberEntry"
+                            Placeholder="Monbile Number"
+                            PlaceholderColor="{DynamicResource Gray-700}"
+                            Style="{StaticResource EntryStyle}"
+                            Text="{Binding Name}"
+                            TextColor="{DynamicResource Gray-900}" />
+                        </border:SfBorder>
+
+                    </StackLayout>
+                    
+                    <StackLayout>
+                    <Label
+                        Margin="10,10,0,0"
+                        FontFamily="{StaticResource Montserrat-Medium}"
+                        HorizontalTextAlignment="Start"
+                        Style="{StaticResource LabelStyle}"
+                        Text="Date of Birth"
+                        TextColor="{DynamicResource Gray-800}" />
+                        <DatePicker Margin="10,-10,0,0" MinimumDate="01/01/2000" MaximumDate="12/31/2020" />
+                    </StackLayout>
+
+                    <StackLayout Orientation="Horizontal" Margin="10,0,10,0" >
+                        <Label FontSize="Large">Sex</Label>
+                        <buttons:SfRadioButton x:Name="rdbtnMale"   FontSize="Large" Text="Male"/>
+                        <buttons:SfRadioButton x:Name="rdbtnFemale"  FontSize="Large" Text="Female"/>
+                    </StackLayout>
+
+                    <buttons:SfButton
+                        Command="{Binding SignUpCommand}"
+                        CornerRadius="20"
+                        FontFamily="{StaticResource Montserrat-SemiBold}"
+                        Style="{StaticResource SfButtonStyle}"
+                        Text="Send Otp On Mobile" WidthRequest="250" 
+                        HorizontalOptions="Center" />
+
+
+                    <border:SfBorder
+                        BackgroundColor="{DynamicResource Gray-White}"
+                        BorderColor="{Binding Source={x:Reference NameEntry}, Path=IsFocused, Converter={StaticResource ColorConverter}, ConverterParameter=3}"
+                        Style="{StaticResource SfBorderStyle}">
+                        <control:BorderlessEntry
+                            x:Name="Otp"
+                            Placeholder="Otp"
+                            PlaceholderColor="{DynamicResource Gray-700}"
+                            Style="{StaticResource EntryStyle}"
+                            Text="{Binding Name}"
+                            TextColor="{DynamicResource Gray-900}" />
+                    </border:SfBorder>
+
+                    <StackLayout
+                    HorizontalOptions="Center"
+                    Orientation="Horizontal"
+                    Spacing="1"
+                    VerticalOptions="End">
+
+                        <StackLayout.Padding>
+                            <OnIdiom
+                            x:DataType="Thickness"
+                            Default="0, 48, 0, 0"
+                            Phone="0" />
+                        </StackLayout.Padding>
+
+                        <Label
+                        FontFamily="{StaticResource Montserrat-Medium}"
+                        HorizontalOptions="CenterAndExpand"
+                        HorizontalTextAlignment="Center"
+                        Style="{StaticResource LabelStyle}"
+                        Text="Register and agree to"
+                        TextColor="{DynamicResource Gray-800}"
+                        VerticalTextAlignment="Center" />
+
+                        <buttons:SfButton
+                        Command="{Binding LoginCommand}"
+                        CornerRadius="4"
+                        Style="{StaticResource SfFlatButtonStyle}"
+                        Text="Terms and Conditions" />
+                    </StackLayout>
+                    <!--  Sign-up button  -->
+                    <buttons:SfButton 
+                        Command="{Binding SignUpCommand}"
+                        CornerRadius="20"
+                        FontFamily="{StaticResource Montserrat-SemiBold}"
+                        Style="{StaticResource SfButtonStyle}"
+                        Text="Verify Otp and Regiter" WidthRequest="250" 
+                        HorizontalOptions="Center" />
+                </StackLayout>
+
+                <StackLayout
+                    HorizontalOptions="Center"
+                    Orientation="Horizontal"
+                    Spacing="1"
+                    VerticalOptions="End">
+
+                    <StackLayout.Padding>
+                        <OnIdiom
+                            x:DataType="Thickness"
+                            Default="0, 48, 0, 0"
+                            Phone="0" />
+                    </StackLayout.Padding>
+
+                    <Label
+                        FontFamily="{StaticResource Montserrat-Medium}"
+                        HorizontalOptions="CenterAndExpand"
+                        HorizontalTextAlignment="Center"
+                        Style="{StaticResource LabelStyle}"
+                        Text="Already have an account?"
+                        TextColor="{DynamicResource Gray-800}"
+                        VerticalTextAlignment="Center" />
+
+                    <buttons:SfButton
+                        Command="{Binding LoginCommand}"
+                        CornerRadius="4"
+                        Style="{StaticResource SfFlatButtonStyle}"
+                        Text="Log In" />
+
+                    
+
+                </StackLayout>
+                
+            </StackLayout>
+        </ScrollView>
+    </ContentPage.Content>
+</ContentPage>

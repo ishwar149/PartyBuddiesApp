@@ -1,0 +1,14 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<TabbedPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="PartyBuddiesApp.Views.Forms.TabbedHome"
+            xmlns:pages="clr-namespace:PartyBuddiesApp.Views.Forms"
+            xmlns:ImgResource="clr-namespace:PartyBuddiesApp.Images;assembly=PartyBuddiesApp"
+            BackgroundColor="{DynamicResource snowWhite}">
+  <!--Pages can be added as references or inline-->
+  <pages:HomePage Title="Home"></pages:HomePage>
+  <ContentPage Title="Profile" />
+  <ContentPage Title="Add" />
+  <ContentPage Title="Preferences" />
+  <ContentPage Title="Parties" />
+</TabbedPage>

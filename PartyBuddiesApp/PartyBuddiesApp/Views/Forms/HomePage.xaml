@@ -1,0 +1,150 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="PartyBuddiesApp.Views.Forms.HomePage"
+             xmlns:sfCards="clr-namespace:Syncfusion.XForms.Cards;assembly=Syncfusion.Cards.XForms"
+             Title="Party Buddies">
+    <ScrollView HorizontalOptions="Center">
+        <ScrollView.VerticalOptions>
+            <OnIdiom
+                    x:TypeArguments="LayoutOptions"
+                    Default="CenterAndExpand"
+                    Phone="FillAndExpand" />
+        </ScrollView.VerticalOptions>
+        <StackLayout Spacing="0"  Orientation="Vertical" VerticalOptions="Start">
+            <sfCards:SfCardLayout SwipeDirection="Left" HeightRequest="720" BackgroundColor="Black">
+                <sfCards:SfCardView BackgroundColor="Black">
+                    <StackLayout>
+                        <StackLayout HeightRequest="580" BackgroundColor="Black" Orientation="Vertical" VerticalOptions="Start">
+                        <Image Aspect="AspectFill" HeightRequest="580" Source="https://upload.wikimedia.org/wikipedia/commons/thumb/b/b6/Image_created_with_a_mobile_phone.png/1200px-Image_created_with_a_mobile_phone.png"></Image>
+                        <StackLayout Padding="10,0,10,0" Margin="0,-65,0,0" BackgroundColor="#80000000" Opacity="1">
+                            <StackLayout Spacing="10" Orientation="Horizontal">
+                            <Label TextColor="White" FontSize="Medium">Organiser -</Label>
+                            <Label TextColor="White" FontSize="Medium">happy</Label>
+                                                   </StackLayout>
+                        <StackLayout Spacing="10" Orientation="Horizontal">
+                                <Label TextColor="White" FontSize="Medium">Location -</Label>
+                                <Label TextColor="White" FontSize="Medium">Bathinda</Label>
+                            </StackLayout>
+                        </StackLayout>
+                    </StackLayout>
+                        <StackLayout Padding="10,0,10,0" Orientation="Horizontal">
+                            <Label TextColor="White" FontSize="Medium">Alcohlic -</Label>
+                            <Label TextColor="White" FontSize="Medium">Yes</Label>
+                    </StackLayout>
+                        <StackLayout Padding="10,0,10,0" Orientation="Horizontal">
+                            <Label TextColor="White" FontSize="Medium">Gender -</Label>
+                            <Label TextColor="White" FontSize="Medium">Male Only</Label>
+                    </StackLayout>
+                        <StackLayout Padding="10,0,10,0"  Orientation="Horizontal">
+                            <Label TextColor="White" FontSize="Medium">Sponsored-</Label>
+                            <Label TextColor="White" FontSize="Medium">Shared Bills</Label>
+                        </StackLayout>
+                    </StackLayout>
+
+            </sfCards:SfCardView>
+
+                <sfCards:SfCardView BackgroundColor="Black">
+                    <StackLayout>
+                        <StackLayout HeightRequest="580" BackgroundColor="Black" Orientation="Vertical" VerticalOptions="Start">
+                        <Image Aspect="AspectFill" HeightRequest="580" Source="https://miro.medium.com/max/1200/1*mk1-6aYaf_Bes1E3Imhc0A.jpeg"></Image>
+                        <StackLayout Padding="10,0,10,0" Margin="0,-65,0,0" BackgroundColor="#80000000" Opacity="1">
+                            <StackLayout Spacing="10" Orientation="Horizontal">
+                                <Label TextColor="White" FontSize="Medium">Organiser -</Label>
+                                <Label TextColor="White" FontSize="Medium">happy</Label>
+                            </StackLayout>
+                            <StackLayout Spacing="10" Orientation="Horizontal">
+                                <Label TextColor="White" FontSize="Medium">Location -</Label>
+                                <Label TextColor="White" FontSize="Medium">Bathinda</Label>
+                            </StackLayout>
+                        </StackLayout>
+                    </StackLayout>
+                        <StackLayout Padding="10,0,10,0" Orientation="Horizontal">
+                            <Label TextColor="White" FontSize="Medium">Alcohlic -</Label>
+                            <Label TextColor="White" FontSize="Medium">Yes</Label>
+                    </StackLayout>
+                        <StackLayout Padding="10,0,10,0" Orientation="Horizontal">
+                            <Label TextColor="White" FontSize="Medium">Gender -</Label>
+                            <Label TextColor="White" FontSize="Medium">Male Only</Label>
+                    </StackLayout>
+                        <StackLayout Padding="10,0,10,0"  Orientation="Horizontal">
+                            <Label TextColor="White" FontSize="Medium">Sponsored-</Label>
+                            <Label TextColor="White" FontSize="Medium">Organiser Sponsored</Label>
+                        </StackLayout>
+                        <StackLayout Padding="10,0,10,0"  Orientation="Horizontal">
+                            <Label TextColor="White" FontSize="Medium">Night Stay-</Label>
+                            <Label TextColor="White" FontSize="Medium">No</Label>
+                        </StackLayout>
+            </StackLayout>
+        </sfCards:SfCardView>
+
+                <sfCards:SfCardView BackgroundColor="Black">
+                    <StackLayout>
+                        <StackLayout HeightRequest="580" BackgroundColor="Black" Orientation="Vertical" VerticalOptions="Start">
+                        <Image Aspect="AspectFill" HeightRequest="580" Source="https://cdn.pixabay.com/photo/2015/04/23/22/00/tree-736885__340.jpg"></Image>
+                        <StackLayout Padding="10,0,10,0" Margin="0,-65,0,0" BackgroundColor="#80000000" Opacity="1">
+                            <StackLayout Spacing="10" Orientation="Horizontal">
+                                <Label TextColor="White" FontSize="Medium">Organiser -</Label>
+                                <Label TextColor="White" FontSize="Medium">happy</Label>
+                            </StackLayout>
+                            <StackLayout Spacing="10" Orientation="Horizontal">
+                                <Label TextColor="White" FontSize="Medium">Location -</Label>
+                                <Label TextColor="White" FontSize="Medium">Bathinda</Label>
+                            </StackLayout>
+                        </StackLayout>
+                    </StackLayout>
+                        <StackLayout Padding="10,0,10,0" Orientation="Horizontal">
+                            <Label TextColor="White" FontSize="Medium">Alcohlic -</Label>
+                            <Label TextColor="White" FontSize="Medium">Yes</Label>
+                    </StackLayout>
+                        <StackLayout Padding="10,0,10,0" Orientation="Horizontal">
+                            <Label TextColor="White" FontSize="Medium">Gender -</Label>
+                            <Label TextColor="White" FontSize="Medium">Male Only</Label>
+                    </StackLayout>
+                        <StackLayout Padding="10,0,10,0"  Orientation="Horizontal">
+                            <Label TextColor="White" FontSize="Medium">Sponsored-</Label>
+                            <Label TextColor="White" FontSize="Medium">Self Sponsored</Label>
+                        </StackLayout>
+                        <StackLayout Padding="10,0,10,0"  Orientation="Horizontal">
+                            <Label TextColor="White" FontSize="Medium">Night Stay-</Label>
+                            <Label TextColor="White" FontSize="Medium">Party Place</Label>
+                        </StackLayout>
+        </StackLayout>
+        </sfCards:SfCardView >
+                <sfCards:SfCardView BackgroundColor="Black">
+                    <StackLayout>
+                        <StackLayout HeightRequest="580" BackgroundColor="Black" Orientation="Vertical" VerticalOptions="Start">
+                        <Image Aspect="AspectFill" HeightRequest="580"  Source="https://media.gettyimages.com/photos/woman-lifts-her-arms-in-victory-mount-everest-national-park-picture-id507910624?s=612x612"></Image>
+                        <StackLayout Padding="10,0,10,0" Margin="0,-65,0,0" BackgroundColor="#80000000" Opacity="1">
+                            <StackLayout Spacing="10" Orientation="Horizontal">
+                                <Label TextColor="White" FontSize="Medium">Organiser -</Label>
+                                <Label TextColor="White" FontSize="Medium">happy</Label>
+                            </StackLayout>
+                            <StackLayout Spacing="10" Orientation="Horizontal">
+                                <Label TextColor="White" FontSize="Medium">Location -</Label>
+                                <Label TextColor="White" FontSize="Medium">Bathinda</Label>
+                            </StackLayout>
+                        </StackLayout>
+                        </StackLayout>
+                        <StackLayout Padding="10,0,10,0"  Orientation="Horizontal">
+                            <Label TextColor="White" FontSize="Medium">Alcohlic -</Label>
+                            <Label TextColor="White" FontSize="Medium">Yes</Label>
+                        </StackLayout>
+                        <StackLayout Padding="10,0,10,0"  Orientation="Horizontal">
+                            <Label TextColor="White" FontSize="Medium">Gender -</Label>
+                            <Label TextColor="White" FontSize="Medium">Male Only</Label>
+                        </StackLayout>
+                        <StackLayout Padding="10,0,10,0"  Orientation="Horizontal">
+                            <Label TextColor="White" FontSize="Medium">Sponsored-</Label>
+                            <Label TextColor="White" FontSize="Medium">Self Sponsored</Label>
+                        </StackLayout>
+                        <StackLayout Padding="10,0,10,0"  Orientation="Horizontal">
+                            <Label TextColor="White" FontSize="Medium">Night Stay-</Label>
+                            <Label TextColor="White" FontSize="Medium">Party Place</Label>
+                        </StackLayout>
+                    </StackLayout>
+                </sfCards:SfCardView>
+            </sfCards:SfCardLayout>
+        </StackLayout>
+    </ScrollView>
+</ContentPage>
