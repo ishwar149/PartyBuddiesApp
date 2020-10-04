@@ -87,7 +87,7 @@
                         <!--  Entry to get Mobile Number from user  -->
                         <border:SfBorder
                         BackgroundColor="{DynamicResource Gray-White}"
-                        BorderColor="{Binding Source={x:Reference NameEntry}, Path=IsFocused, Converter={StaticResource ColorConverter}, ConverterParameter=3}"
+                        BorderColor="{Binding Source={x:Reference MonbileNumberEntry}, Path=IsFocused, Converter={StaticResource ColorConverter}, ConverterParameter=3}"
                         Style="{StaticResource SfBorderStyle}">
                             <control:BorderlessEntry
                             x:Name="MonbileNumberEntry"
@@ -108,13 +108,13 @@
                         Style="{StaticResource LabelStyle}"
                         Text="Date of Birth"
                         TextColor="{DynamicResource Gray-800}" />
-                        <DatePicker Margin="10,-10,0,0" MinimumDate="01/01/2000" MaximumDate="12/31/2020" />
+                        <DatePicker TextColor="Black" Margin="10,-10,0,0" MinimumDate="01/01/1900" MaximumDate="01/01/2000" />
                     </StackLayout>
 
                     <StackLayout Orientation="Horizontal" Margin="10,0,10,0" >
-                        <Label FontSize="Large">Sex</Label>
-                        <buttons:SfRadioButton x:Name="rdbtnMale"   FontSize="Large" Text="Male"/>
-                        <buttons:SfRadioButton x:Name="rdbtnFemale"  FontSize="Large" Text="Female"/>
+                        <Label FontSize="Large" TextColor="Black" >Sex</Label>
+                        <buttons:SfRadioButton TextColor="Black" x:Name="rdbtnMale" CheckedColor="Red" UncheckedColor="Red"   FontSize="Large" Text="Male"/>
+                        <buttons:SfRadioButton TextColor="Black" x:Name="rdbtnFemale" CheckedColor="Red" UncheckedColor="Red"  FontSize="Large" Text="Female"/>
                     </StackLayout>
 
                     <buttons:SfButton
@@ -128,7 +128,7 @@
 
                     <border:SfBorder
                         BackgroundColor="{DynamicResource Gray-White}"
-                        BorderColor="{Binding Source={x:Reference NameEntry}, Path=IsFocused, Converter={StaticResource ColorConverter}, ConverterParameter=3}"
+                        BorderColor="{Binding Source={x:Reference Otp}, Path=IsFocused, Converter={StaticResource ColorConverter}, ConverterParameter=3}"
                         Style="{StaticResource SfBorderStyle}">
                         <control:BorderlessEntry
                             x:Name="Otp"

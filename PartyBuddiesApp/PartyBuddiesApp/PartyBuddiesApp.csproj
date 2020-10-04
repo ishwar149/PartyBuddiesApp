@@ -19,12 +19,11 @@
   <ItemGroup>
     <EmbeddedResource Include="Images\messages.png" />
     <EmbeddedResource Include="Images\notofications.png" />
-    <EmbeddedResource Include="Images\PartyBuddies.PNG">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </EmbeddedResource>
+    <EmbeddedResource Include="Images\PartyBuddies.PNG" />
   </ItemGroup>
 
   <ItemGroup>
+    <PackageReference Include="Forms.Controls.SwipeCards" Version="0.4.0" />
     <PackageReference Include="Plugin.FacebookClient" Version="2.2.1" />
     <PackageReference Include="Syncfusion.Xamarin.Buttons" Version="18.2.0.56" />
     <PackageReference Include="Syncfusion.Xamarin.Cards" Version="18.2.0.56" />
@@ -32,6 +31,7 @@
     <PackageReference Include="Syncfusion.Xamarin.SfCalendar" Version="18.2.0.56" />
     <PackageReference Include="Syncfusion.Xamarin.SfComboBox" Version="18.2.0.56" />
     <PackageReference Include="Syncfusion.Xamarin.SfListView" Version="18.2.0.56" />
+    <PackageReference Include="Syncfusion.Xamarin.SfRangeSlider" Version="18.2.0.56" />
     <PackageReference Include="Syncfusion.Xamarin.SfRating" Version="18.2.0.56" />
     <PackageReference Include="Xamarin.Forms" Version="4.6.0.1141" />
     <PackageReference Include="Xamarin.Essentials" Version="1.5.3.2" />
@@ -47,13 +47,25 @@
     <Compile Update="Views\LoginAndRegister\LoginPage.xaml.cs">
       <DependentUpon>%(Filename)</DependentUpon>
     </Compile>
+    <Compile Update="Views\Templates\CustomStyle.xaml.cs">
+      <DependentUpon>CustomStyle.xaml</DependentUpon>
+    </Compile>
   </ItemGroup>
 
   <ItemGroup>
     <EmbeddedResource Update="Themes\LightTheme.xaml">
       <Generator>MSBuild:Compile</Generator>
     </EmbeddedResource>
+    <EmbeddedResource Update="Views\Forms\AddPartyPage.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Update="Views\Forms\AddPartyTabbedPage.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
     <EmbeddedResource Update="Views\Forms\HomePage.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Update="Views\Forms\SwipeHomePage.xaml">
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
     </EmbeddedResource>
     <EmbeddedResource Update="Views\Forms\TabbedHome.xaml">
@@ -69,6 +81,9 @@
       <Generator>MSBuild:Compile</Generator>
     </EmbeddedResource>
     <EmbeddedResource Update="Views\Templates\SocialIconTemplate.xaml">
+      <Generator>MSBuild:Compile</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Update="Views\Templates\CustomStyle.xaml">
       <Generator>MSBuild:Compile</Generator>
     </EmbeddedResource>
     <EmbeddedResource Update="Views\Templates\Styles.xaml">

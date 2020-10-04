@@ -19,9 +19,9 @@ namespace PartyBuddiesApp.Views.Forms
             InitializeComponent();
             On<Xamarin.Forms.PlatformConfiguration.Android>().SetToolbarPlacement(ToolbarPlacement.Bottom);
             On<Xamarin.Forms.PlatformConfiguration.Android>().SetIsSwipePagingEnabled(false);
-            this.BackgroundColor = Color.Black;
-            this.SelectedTabColor = Color.White;
+            this.SelectedTabColor = Color.Black;
             this.UnselectedTabColor = Color.White;
+            this.BarBackgroundColor = Color.FromHex("#F24A67");
         }
     }
 }

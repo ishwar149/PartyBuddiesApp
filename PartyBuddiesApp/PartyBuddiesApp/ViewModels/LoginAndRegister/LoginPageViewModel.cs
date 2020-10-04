@@ -91,7 +91,7 @@ namespace PartyBuddiesApp.ViewModels.LoginAndRegister
         {
             App.Current.MainPage = new NavigationPage(new Views.Forms.TabbedHome())
             {
-                BarBackgroundColor = Color.Black,
+                BarBackgroundColor = Color.FromHex("#F24A67"),
                 BarTextColor = Color.White,
             };
             AddToolbarItems(App.Current.MainPage);

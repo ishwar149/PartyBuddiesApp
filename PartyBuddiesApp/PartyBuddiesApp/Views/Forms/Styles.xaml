@@ -27,7 +27,7 @@
     <Color x:Key="PartybuddiesGreen">#99C2A2</Color>
     <Color x:Key="PartybuddiesLightGreen">#C5EDAC</Color>
     <Color x:Key="PartybuddiessoftGreen">#DBFEB8</Color>
-    <Color x:Key="SnowWhite">#FFFBFA</Color>
+    <Color x:Key="SnowWhite">#FFFFFF</Color>
 
     
 

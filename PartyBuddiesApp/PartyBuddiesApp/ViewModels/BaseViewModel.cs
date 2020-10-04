@@ -43,7 +43,7 @@ namespace PartyBuddiesApp.ViewModels
             ToolbarItem notification = new ToolbarItem()
             {
                 Text = "Notifications",
-                IconImageSource = ImageSource.FromResource("PartyBuddiesApp.Images.notofications.png", typeof(App).GetTypeInfo().Assembly),
+                IconImageSource = "@drawable/nonotifications.png",
                 Order = ToolbarItemOrder.Primary,
                 Priority = 0
             };
@@ -52,8 +52,11 @@ namespace PartyBuddiesApp.ViewModels
                 Text = "Party Buddies",
                 //IconImageSource = ImageSource.FromResource("PartyBuddiesApp.Images.notofications.png", typeof(App).GetTypeInfo().Assembly),
                 Order = ToolbarItemOrder.Primary,
+
                 Priority = 1
             };
+
+
             ToolbarItem item1 = new ToolbarItem()
             {
                 Text = "",
@@ -75,19 +78,15 @@ namespace PartyBuddiesApp.ViewModels
                 Order = ToolbarItemOrder.Primary,
                 Priority = 4
             };
-            ToolbarItem item4 = new ToolbarItem()
-            {
-                Text = "",
-                // IconImageSource = ImageSource.FromResource("PartyBuddiesApp.Images.notofications.png", typeof(App).GetTypeInfo().Assembly),
-                Order = ToolbarItemOrder.Primary,
-                Priority = 5
-            };
+
+
+
             ToolbarItem Messages = new ToolbarItem()
             {
                 Text = "Messages",
-                IconImageSource = ImageSource.FromResource("PartyBuddiesApp.Images.messages.png", typeof(App).GetTypeInfo().Assembly),
+                IconImageSource = "@drawable/messagelight.png",
                 Order = ToolbarItemOrder.Primary,
-                Priority = 6
+                Priority = 5
             };
 
             MainPage.ToolbarItems.Add(notification);
@@ -95,7 +94,6 @@ namespace PartyBuddiesApp.ViewModels
             MainPage.ToolbarItems.Add(item1);
             MainPage.ToolbarItems.Add(item2);
             MainPage.ToolbarItems.Add(item3);
-            MainPage.ToolbarItems.Add(item4);
             MainPage.ToolbarItems.Add(Messages);
         }
 

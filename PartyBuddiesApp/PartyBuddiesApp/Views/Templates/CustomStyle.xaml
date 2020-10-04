@@ -1,0 +1,25 @@
+﻿<?xml version="1.0" encoding="UTF-8" ?>
+<ResourceDictionary
+    x:Class="PartyBuddiesApp.Views.Templates.CustomStyle"
+    xmlns="http://xamarin.com/schemas/2014/forms"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml">
+
+    <Color x:Key="Gold">#fcbc0f</Color>
+    <Color x:Key="Steel">#788396</Color>
+    <Color x:Key="FacebookBlue">#4267B2</Color>
+    <Color x:Key="FacebookLogin">#3b5998</Color>
+    <Color x:Key="TwitterBlue">#55acee</Color>
+    <Color x:Key="Red">#dc4e41</Color>
+    <Color x:Key="Transparent">Transparent</Color>
+
+    <x:String x:Key="Rating">&#xe70c;</x:String>
+    <x:String x:Key="ArrowRight">&#xe728;</x:String>
+    <x:String x:Key="DropDownButtonIcon">&#xe70b;</x:String>
+    <x:String x:Key="More">&#xe719;</x:String>
+    <x:String x:Key="Favourite">&#xe701;</x:String>
+    <x:String x:Key="FaceBook">&#xe70f;</x:String>
+    <x:String x:Key="Google">&#xe74d;</x:String>
+    <x:String x:Key="Twitter">&#xe749;</x:String>
+    <x:String x:Key="Share">&#xe704;</x:String>
+
+</ResourceDictionary>

@@ -1,0 +1,17 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:swipecards="clr-namespace:SwipeCards.Controls;assembly=SwipeCards.Controls"
+             x:Class="PartyBuddiesApp.Views.Forms.SwipeHomePage">
+    <ContentPage.Content>
+        <swipecards:CardStackView ItemsSource="{Binding Parties}" Padding="5" BackgroundColor="Silver">
+            <swipecards:CardStackView.ItemTemplate>
+                <DataTemplate>
+                    <Grid HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand">
+                        <Image Aspect="AspectFill" Source="{Binding ImageUrl}" />
+                    </Grid>                   
+                </DataTemplate>
+            </swipecards:CardStackView.ItemTemplate>
+        </swipecards:CardStackView>
+    </ContentPage.Content>
+</ContentPage>
