@@ -1,0 +1,182 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="PartyBuddiesApp.Views.Forms.ProfilePage"
+             xmlns:cards="clr-namespace:Syncfusion.XForms.Cards;assembly=Syncfusion.Cards.XForms"
+             xmlns:border="clr-namespace:Syncfusion.XForms.Border;assembly=Syncfusion.Core.XForms"
+             xmlns:buttons="clr-namespace:Syncfusion.XForms.Buttons;assembly=Syncfusion.Buttons.XForms"
+             xmlns:control="clr-namespace:PartyBuddiesApp.Controls"
+             xmlns:converter="clr-namespace:PartyBuddiesApp.Converters">
+
+    <ContentPage.Resources>
+        <ResourceDictionary>
+            <converter:BooleanToColorConverter x:Key="ColorConverter" />
+            <ResourceDictionary.MergedDictionaries>
+                <ResourceDictionary Source="/Views/Forms/Styles.xaml" />
+            </ResourceDictionary.MergedDictionaries>
+        </ResourceDictionary>
+    </ContentPage.Resources>
+    <ContentPage.Content>
+        <ScrollView>
+            <StackLayout Orientation="Vertical" Padding="10">
+                <cards:SfCardLayout SwipeDirection="Left" HeightRequest="400" BackgroundColor="#F0F0F0" ShowSwipedCard="true">
+                    <cards:SfCardView>
+                        <Label  Text="Cyan" BackgroundColor="Cyan"/>
+                    </cards:SfCardView>
+                    <cards:SfCardView>
+                        <Label  Text="Yellow" BackgroundColor="Yellow"/>
+                    </cards:SfCardView>
+                    <cards:SfCardView>
+                        <Label  Text="Orange" BackgroundColor="Orange"/>
+                    </cards:SfCardView>
+                </cards:SfCardLayout>
+
+                <buttons:SfButton
+                        Grid.Row="6"
+                        Margin="10,16,10,16"
+                        Style="{StaticResource SfButtonStyle}"
+                        Text="Upload Images" />
+                <StackLayout Padding="10">
+                    <StackLayout Orientation="Horizontal">
+                        <Label
+                        FontFamily="{StaticResource Montserrat-Medium}"
+                        VerticalTextAlignment="Center"
+                        Style="{StaticResource LabelStyle}"
+                        Text="Name"
+                        TextColor="{DynamicResource Gray-800}" WidthRequest="100" />
+                        <border:SfBorder
+                        Grid.Row="4"
+                        BackgroundColor="{DynamicResource Gray-White}"
+                        BorderColor="{Binding Source={x:Reference Name}, Path=IsFocused, Converter={StaticResource ColorConverter}, ConverterParameter=3}"
+                        Style="{StaticResource SfBorderStyle}">
+                            <control:BorderlessEntry
+                            x:Name="Name"
+                            Placeholder="Password"
+                            PlaceholderColor="{DynamicResource Gray-700}"
+                            Style="{StaticResource EntryStyle}"
+                            Text="Ishwardeep Singh"
+                            TextColor="{DynamicResource Gray-900}"
+                            WidthRequest="200" />
+                        </border:SfBorder>
+                    </StackLayout>
+
+                    <StackLayout Orientation="Horizontal">
+                        <Label
+                        FontFamily="{StaticResource Montserrat-Medium}"
+                        VerticalTextAlignment="Center"
+                        Style="{StaticResource LabelStyle}"
+                        Text="Date of Birth"
+                        TextColor="{DynamicResource Gray-800}" WidthRequest="100" />
+                        <border:SfBorder
+                        Grid.Row="4"
+                        BackgroundColor="{DynamicResource Gray-White}"
+                        BorderColor="{Binding Source={x:Reference dob}, Path=IsFocused, Converter={StaticResource ColorConverter}, ConverterParameter=3}"
+                        Style="{StaticResource SfBorderStyle}">
+                            <control:BorderlessEntry
+                            x:Name="dob"
+                            Placeholder="Date of Birth"
+                            PlaceholderColor="{DynamicResource Gray-700}"
+                            Style="{StaticResource EntryStyle}"
+                            Text="14 August 1990"
+                            TextColor="{DynamicResource Gray-900}" WidthRequest="200" />
+                        </border:SfBorder>
+                    </StackLayout>
+
+                    <StackLayout Orientation="Horizontal">
+                        <Label
+                        FontFamily="{StaticResource Montserrat-Medium}"
+                       VerticalTextAlignment="Center"
+                        Style="{StaticResource LabelStyle}"
+                        Text="Location"
+                        TextColor="{DynamicResource Gray-800}" WidthRequest="100" />
+                        <border:SfBorder
+                        Grid.Row="4"
+                        BackgroundColor="{DynamicResource Gray-White}"
+                        BorderColor="{Binding Source={x:Reference Location}, Path=IsFocused, Converter={StaticResource ColorConverter}, ConverterParameter=3}"
+                        Style="{StaticResource SfBorderStyle}">
+                            <control:BorderlessEntry
+                            x:Name="Location"
+                            Placeholder="Location"
+                            PlaceholderColor="{DynamicResource Gray-700}"
+                            Style="{StaticResource EntryStyle}"
+                            Text="Chandigarh"
+                            TextColor="{DynamicResource Gray-900}" WidthRequest="200" />
+                        </border:SfBorder>
+                    </StackLayout>
+
+                    <StackLayout Orientation="Horizontal">
+                        <Label
+                        FontFamily="{StaticResource Montserrat-Medium}"
+                        VerticalTextAlignment="Center"
+                        Style="{StaticResource LabelStyle}"
+                        Text="Sex"
+                        TextColor="{DynamicResource Gray-800}" WidthRequest="100"  />
+                        <border:SfBorder
+                        Grid.Row="4"
+                        BackgroundColor="{DynamicResource Gray-White}"
+                        BorderColor="{Binding Source={x:Reference Sex}, Path=IsFocused, Converter={StaticResource ColorConverter}, ConverterParameter=3}"
+                        Style="{StaticResource SfBorderStyle}">
+                            <control:BorderlessEntry
+                            x:Name="Sex"
+                            Placeholder="Sex"
+                            PlaceholderColor="{DynamicResource Gray-700}"
+                            Style="{StaticResource EntryStyle}"
+                            Text="Male"
+                            TextColor="{DynamicResource Gray-900}" WidthRequest="200" />
+                        </border:SfBorder>
+                    </StackLayout>
+
+                    <StackLayout Orientation="Horizontal">
+                        <Label
+                        FontFamily="{StaticResource Montserrat-Medium}"
+                        VerticalTextAlignment="Center"
+                        Style="{StaticResource LabelStyle}"
+                        Text="Parties Hosted"
+                        TextColor="{DynamicResource Gray-800}" WidthRequest="100" />
+                        <border:SfBorder
+                        Grid.Row="4"
+                        BackgroundColor="{DynamicResource Gray-White}"
+                        BorderColor="{Binding Source={x:Reference PartiesHosted}, Path=IsFocused, Converter={StaticResource ColorConverter}, ConverterParameter=3}"
+                        Style="{StaticResource SfBorderStyle}">
+                            <control:BorderlessEntry
+                            x:Name="PartiesHosted"
+                            Placeholder="Parties Hosted"
+                            PlaceholderColor="{DynamicResource Gray-700}"
+                            Style="{StaticResource EntryStyle}"
+                            Text="20"
+                            TextColor="{DynamicResource Gray-900}" WidthRequest="200" />
+                        </border:SfBorder>
+                    </StackLayout>
+
+                    <StackLayout Orientation="Horizontal">
+                        <Label
+                        FontFamily="{StaticResource Montserrat-Medium}"
+                        VerticalTextAlignment="Center"
+                        Style="{StaticResource LabelStyle}"
+                        Text="Tours Hosted"
+                        TextColor="{DynamicResource Gray-800}" WidthRequest="100" />
+                        <border:SfBorder
+                        Grid.Row="4"
+                        BackgroundColor="{DynamicResource Gray-White}"
+                        BorderColor="{Binding Source={x:Reference ToursHosted}, Path=IsFocused, Converter={StaticResource ColorConverter}, ConverterParameter=3}"
+                        Style="{StaticResource SfBorderStyle}">
+                            <control:BorderlessEntry
+                            x:Name="ToursHosted"
+                            Placeholder="Tours Hosted"
+                            PlaceholderColor="{DynamicResource Gray-700}"
+                            Style="{StaticResource EntryStyle}"
+                            Text="10"
+                            TextColor="{DynamicResource Gray-900}" WidthRequest="200" />
+                        </border:SfBorder>
+                    </StackLayout>
+
+                    <buttons:SfButton
+                        Grid.Row="6"
+                        Margin="0,16"
+                        Style="{StaticResource SfButtonStyle}"
+                        Text="Save Changes" />
+                </StackLayout>
+            </StackLayout>
+        </ScrollView>
+    </ContentPage.Content>
+</ContentPage>

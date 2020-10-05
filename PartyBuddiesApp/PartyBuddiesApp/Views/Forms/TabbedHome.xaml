@@ -17,8 +17,8 @@
     </TabbedPage.Resources>
     <!--Pages can be added as references or inline-->
     <pages:SwipeHomePage Title="Home" IconImageSource="@drawable/home.png" />
-    <ContentPage Title="Profile"  IconImageSource="@drawable/profile.png" />
+    <pages:ProfilePage Title="Profile"  IconImageSource="@drawable/profile.png" />
     <pages:AddPartyTabbedPage Title="Add" IconImageSource="@drawable/add.png"/>
-    <ContentPage Title="Preferences" IconImageSource="@drawable/settings.png" />
+    <pages:PreferencesPage Title="Preferences" IconImageSource="@drawable/settings.png" />
     <ContentPage Title="Parties" IconImageSource="@drawable/home.png" />
 </TabbedPage>

@@ -31,6 +31,7 @@
     <PackageReference Include="Syncfusion.Xamarin.SfCalendar" Version="18.2.0.56" />
     <PackageReference Include="Syncfusion.Xamarin.SfComboBox" Version="18.2.0.56" />
     <PackageReference Include="Syncfusion.Xamarin.SfListView" Version="18.2.0.56" />
+    <PackageReference Include="Syncfusion.Xamarin.SfPicker" Version="18.2.0.56" />
     <PackageReference Include="Syncfusion.Xamarin.SfRangeSlider" Version="18.2.0.56" />
     <PackageReference Include="Syncfusion.Xamarin.SfRating" Version="18.2.0.56" />
     <PackageReference Include="Xamarin.Forms" Version="4.6.0.1141" />
@@ -38,9 +39,6 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Compile Update="Views\Forms\HomePage.xaml.cs">
-      <DependentUpon>HomePage.xaml</DependentUpon>
-    </Compile>
     <Compile Update="Views\LoginAndRegister\SignUpPage.xaml.cs">
       <DependentUpon>SignUpPage.xaml</DependentUpon>
     </Compile>
@@ -62,7 +60,10 @@
     <EmbeddedResource Update="Views\Forms\AddPartyTabbedPage.xaml">
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
     </EmbeddedResource>
-    <EmbeddedResource Update="Views\Forms\HomePage.xaml">
+    <EmbeddedResource Update="Views\Forms\PreferencesPage.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Update="Views\Forms\ProfilePage.xaml">
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
     </EmbeddedResource>
     <EmbeddedResource Update="Views\Forms\SwipeHomePage.xaml">
