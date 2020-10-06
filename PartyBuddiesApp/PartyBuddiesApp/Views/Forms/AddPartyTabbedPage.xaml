@@ -5,5 +5,5 @@
              x:Class="PartyBuddiesApp.Views.Forms.AddPartyTabbedPage">
     <!--Pages can be added as references or inline-->
     <pages:AddPartyPage  Title="Add Party" />
-    <ContentPage     Title="Add Tour" />
+    <pages:AddTourPage   Title="Add Tour" />
 </TabbedPage>

@@ -20,5 +20,5 @@
     <pages:ProfilePage Title="Profile"  IconImageSource="@drawable/profile.png" />
     <pages:AddPartyTabbedPage Title="Add" IconImageSource="@drawable/add.png"/>
     <pages:PreferencesPage Title="Preferences" IconImageSource="@drawable/settings.png" />
-    <ContentPage Title="Parties" IconImageSource="@drawable/home.png" />
+    <pages:PartiesTabbed Title="Parties" IconImageSource="@drawable/home.png" />
 </TabbedPage>
