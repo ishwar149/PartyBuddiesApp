@@ -135,13 +135,22 @@
     <PackageReference Include="Syncfusion.Xamarin.Buttons">
       <Version>18.2.0.56</Version>
     </PackageReference>
+    <PackageReference Include="Syncfusion.Xamarin.Cards">
+      <Version>18.2.0.56</Version>
+    </PackageReference>
     <PackageReference Include="Syncfusion.Xamarin.Core">
+      <Version>18.2.0.56</Version>
+    </PackageReference>
+    <PackageReference Include="Syncfusion.Xamarin.SfBadgeView">
       <Version>18.2.0.56</Version>
     </PackageReference>
     <PackageReference Include="Syncfusion.Xamarin.SfCalendar">
       <Version>18.2.0.56</Version>
     </PackageReference>
     <PackageReference Include="Syncfusion.Xamarin.SfComboBox">
+      <Version>18.2.0.56</Version>
+    </PackageReference>
+    <PackageReference Include="Syncfusion.Xamarin.SfListView">
       <Version>18.2.0.56</Version>
     </PackageReference>
     <PackageReference Include="Syncfusion.Xamarin.SfPicker">
@@ -160,5 +169,7 @@
       <Name>PartyBuddiesApp</Name>
     </ProjectReference>
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <BundleResource Include="Resources\ChatMessageBackground.png" />
+  </ItemGroup>
 </Project>

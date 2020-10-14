@@ -1,4 +1,4 @@
-﻿using PartyBuddiesApp.Views.LoginAndRegister;
+using PartyBuddiesApp.Views.LoginAndRegister;
 using System;
 using System.Collections.Generic;
 using System.Reflection;
@@ -9,6 +9,7 @@ namespace PartyBuddiesApp
 {
     public partial class App : Application
     {
+        public static string BaseImageUrl { get; } = "https://cdn.syncfusion.com/essential-ui-kit-for-xamarin.forms/common/uikitimages/";
         public App()
         {
 

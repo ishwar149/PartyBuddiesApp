@@ -11,12 +11,14 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <None Remove="Data\notification.json" />
     <None Remove="Images\messages.png" />
     <None Remove="Images\notofications.png" />
     <None Remove="Images\PartyBuddies.PNG" />
   </ItemGroup>
 
   <ItemGroup>
+    <EmbeddedResource Include="Data\notification.json" />
     <EmbeddedResource Include="Images\messages.png" />
     <EmbeddedResource Include="Images\notofications.png" />
     <EmbeddedResource Include="Images\PartyBuddies.PNG" />
@@ -28,6 +30,7 @@
     <PackageReference Include="Syncfusion.Xamarin.Buttons" Version="18.2.0.56" />
     <PackageReference Include="Syncfusion.Xamarin.Cards" Version="18.2.0.56" />
     <PackageReference Include="Syncfusion.Xamarin.Core" Version="18.2.0.56" />
+    <PackageReference Include="Syncfusion.Xamarin.SfBadgeView" Version="18.2.0.56" />
     <PackageReference Include="Syncfusion.Xamarin.SfCalendar" Version="18.2.0.56" />
     <PackageReference Include="Syncfusion.Xamarin.SfComboBox" Version="18.2.0.56" />
     <PackageReference Include="Syncfusion.Xamarin.SfListView" Version="18.2.0.56" />
@@ -52,6 +55,27 @@
 
   <ItemGroup>
     <EmbeddedResource Update="Themes\LightTheme.xaml">
+      <Generator>MSBuild:Compile</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Update="Views\Chat\ChatMessagePage.xaml">
+      <Generator>MSBuild:Compile</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Update="Views\Chat\RecentChatPage.xaml">
+      <Generator>MSBuild:Compile</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Update="Views\Chat\Styles.xaml">
+      <Generator>MSBuild:Compile</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Update="Views\Chat\Templates\IncomingImageTemplate.xaml">
+      <Generator>MSBuild:Compile</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Update="Views\Chat\Templates\IncomingTextTemplate.xaml">
+      <Generator>MSBuild:Compile</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Update="Views\Chat\Templates\OutgoingImageTemplate.xaml">
+      <Generator>MSBuild:Compile</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Update="Views\Chat\Templates\OutgoingTextTemplate.xaml">
       <Generator>MSBuild:Compile</Generator>
     </EmbeddedResource>
     <EmbeddedResource Update="Views\Forms\AddPartyPage.xaml">
@@ -94,6 +118,12 @@
       <Generator>MSBuild:Compile</Generator>
     </EmbeddedResource>
     <EmbeddedResource Update="Views\LoginAndRegister\LoginPage.xaml">
+      <Generator>MSBuild:Compile</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Update="Views\Notification\SocialNotificationPage.xaml">
+      <Generator>MSBuild:Compile</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Update="Views\Notification\Styles.xaml">
       <Generator>MSBuild:Compile</Generator>
     </EmbeddedResource>
     <EmbeddedResource Update="Views\Templates\SocialIconTemplate.xaml">

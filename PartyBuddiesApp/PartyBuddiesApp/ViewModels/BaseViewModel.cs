@@ -1,4 +1,5 @@
-﻿using System;
+﻿using PartyBuddiesApp.Views.Chat;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Reflection;
@@ -45,7 +46,8 @@ namespace PartyBuddiesApp.ViewModels
                 Text = "Notifications",
                 IconImageSource = "@drawable/nonotifications.png",
                 Order = ToolbarItemOrder.Primary,
-                Priority = 0
+                Priority = 0,
+                Command = new Command(this.NotificationsClicked)
             };
             ToolbarItem PartyBuddies = new ToolbarItem()
             {
@@ -86,7 +88,9 @@ namespace PartyBuddiesApp.ViewModels
                 Text = "Messages",
                 IconImageSource = "@drawable/messagelight.png",
                 Order = ToolbarItemOrder.Primary,
-                Priority = 5
+                Priority = 5,
+                Command = new Command(this.MessagesClicked)
+
             };
 
             MainPage.ToolbarItems.Add(notification);
@@ -97,6 +101,17 @@ namespace PartyBuddiesApp.ViewModels
             MainPage.ToolbarItems.Add(Messages);
         }
 
+
+        private void MessagesClicked(object obj)
+        {
+            (App.Current.MainPage as NavigationPage).PushAsync(new Views.Chat.RecentChatPage());
+        }
+
+
+        private void NotificationsClicked(object obj)
+        {
+            (App.Current.MainPage as NavigationPage).PushAsync(new Views.Notification.SocialNotificationPage());
+        }
         #endregion
     }
 }

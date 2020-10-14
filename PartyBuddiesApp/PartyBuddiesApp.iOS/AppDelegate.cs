@@ -1,3 +1,7 @@
+using Syncfusion.XForms.iOS.Cards;
+using Syncfusion.XForms.iOS.Graphics;
+using Syncfusion.XForms.iOS.BadgeView;
+using Syncfusion.ListView.XForms.iOS;
 using Syncfusion.SfRating.XForms.iOS;
 using Syncfusion.XForms.iOS.ComboBox;
 using Syncfusion.XForms.iOS.Border;
@@ -27,6 +31,9 @@ namespace PartyBuddiesApp.iOS
         public override bool FinishedLaunching(UIApplication app, NSDictionary options)
         {
             global::Xamarin.Forms.Forms.Init();
+            SfCardViewRenderer.Init();
+            SfBadgeViewRenderer.Init();
+            SfListViewRenderer.Init();
             SfRatingRenderer.Init();
             SfBorderRenderer.Init();
             SfButtonRenderer.Init();
