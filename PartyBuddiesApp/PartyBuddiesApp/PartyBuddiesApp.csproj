@@ -12,33 +12,48 @@
 
   <ItemGroup>
     <None Remove="Data\notification.json" />
+    <None Remove="Images\ArrowLeft.png" />
+    <None Remove="Images\ArrowRight.png" />
+    <None Remove="Images\Details.png" />
     <None Remove="Images\messages.png" />
+    <None Remove="Images\Notification.png" />
     <None Remove="Images\notofications.png" />
     <None Remove="Images\PartyBuddies.PNG" />
   </ItemGroup>
 
   <ItemGroup>
     <EmbeddedResource Include="Data\notification.json" />
+    <EmbeddedResource Include="Images\ArrowLeft.png" />
+    <EmbeddedResource Include="Images\ArrowRight.png" />
+    <EmbeddedResource Include="Images\Details.png" />
     <EmbeddedResource Include="Images\messages.png" />
+    <EmbeddedResource Include="Images\Notification.png" />
     <EmbeddedResource Include="Images\notofications.png" />
     <EmbeddedResource Include="Images\PartyBuddies.PNG" />
   </ItemGroup>
 
   <ItemGroup>
+    <PackageReference Include="Acr.UserDialogs" Version="7.1.0.483" />
     <PackageReference Include="Forms.Controls.SwipeCards" Version="0.4.0" />
+    <PackageReference Include="Microsoft.AspNet.SignalR.Client" Version="2.4.1" />
+    <PackageReference Include="Microsoft.AspNetCore.SignalR.Client" Version="5.0.5" />
+    <PackageReference Include="MvvmLightLibsStd10" Version="5.4.1.1" />
     <PackageReference Include="Plugin.FacebookClient" Version="2.2.1" />
-    <PackageReference Include="Syncfusion.Xamarin.Buttons" Version="18.2.0.56" />
-    <PackageReference Include="Syncfusion.Xamarin.Cards" Version="18.2.0.56" />
-    <PackageReference Include="Syncfusion.Xamarin.Core" Version="18.2.0.56" />
-    <PackageReference Include="Syncfusion.Xamarin.SfBadgeView" Version="18.2.0.56" />
-    <PackageReference Include="Syncfusion.Xamarin.SfCalendar" Version="18.2.0.56" />
-    <PackageReference Include="Syncfusion.Xamarin.SfComboBox" Version="18.2.0.56" />
-    <PackageReference Include="Syncfusion.Xamarin.SfListView" Version="18.2.0.56" />
-    <PackageReference Include="Syncfusion.Xamarin.SfPicker" Version="18.2.0.56" />
-    <PackageReference Include="Syncfusion.Xamarin.SfRangeSlider" Version="18.2.0.56" />
-    <PackageReference Include="Syncfusion.Xamarin.SfRating" Version="18.2.0.56" />
-    <PackageReference Include="Xamarin.Forms" Version="4.6.0.1141" />
-    <PackageReference Include="Xamarin.Essentials" Version="1.5.3.2" />
+    <PackageReference Include="Plugin.FirebasePushNotification" Version="3.3.10" />
+    <PackageReference Include="sqlite-net-pcl" Version="1.7.335" />
+    <PackageReference Include="Syncfusion.Xamarin.Buttons" Version="18.2.0.59" />
+    <PackageReference Include="Syncfusion.Xamarin.Cards" Version="18.2.0.59" />
+    <PackageReference Include="Syncfusion.Xamarin.Core" Version="18.2.0.59" />
+    <PackageReference Include="Syncfusion.Xamarin.SfBadgeView" Version="18.2.0.59" />
+    <PackageReference Include="Syncfusion.Xamarin.SfCalendar" Version="18.2.0.59" />
+    <PackageReference Include="Syncfusion.Xamarin.SfComboBox" Version="18.2.0.59" />
+    <PackageReference Include="Syncfusion.Xamarin.SfListView" Version="18.2.0.59" />
+    <PackageReference Include="Syncfusion.Xamarin.SfPicker" Version="18.2.0.59" />
+    <PackageReference Include="Syncfusion.Xamarin.SfRangeSlider" Version="18.2.0.59" />
+    <PackageReference Include="Syncfusion.Xamarin.SfRating" Version="18.2.0.59" />
+    <PackageReference Include="Xam.Plugin.Media" Version="5.0.1" />
+    <PackageReference Include="Xamarin.Forms" Version="5.0.0.2012" />
+    <PackageReference Include="Xamarin.Essentials" Version="1.6.1" />
   </ItemGroup>
 
   <ItemGroup>
@@ -78,6 +93,9 @@
     <EmbeddedResource Update="Views\Chat\Templates\OutgoingTextTemplate.xaml">
       <Generator>MSBuild:Compile</Generator>
     </EmbeddedResource>
+    <EmbeddedResource Update="Views\Common\ComingSoonPage.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
     <EmbeddedResource Update="Views\Forms\AddPartyPage.xaml">
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
     </EmbeddedResource>
@@ -87,6 +105,9 @@
     <EmbeddedResource Update="Views\Forms\AddTourPage.xaml">
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
     </EmbeddedResource>
+    <EmbeddedResource Update="Views\Forms\EditPartyPage.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
     <EmbeddedResource Update="Views\Forms\PartiesPage.xaml">
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
     </EmbeddedResource>
@@ -94,6 +115,9 @@
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
     </EmbeddedResource>
     <EmbeddedResource Update="Views\Forms\PartyDetailsPage.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Update="Views\Forms\PartyRequestsPage.xaml">
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
     </EmbeddedResource>
     <EmbeddedResource Update="Views\Forms\PreferencesPage.xaml">
@@ -109,6 +133,9 @@
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
     </EmbeddedResource>
     <EmbeddedResource Update="Views\Forms\ToursPage.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Update="Views\LoginAndRegister\OtpPage.xaml">
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
     </EmbeddedResource>
     <EmbeddedResource Update="Views\LoginAndRegister\SignUpPage.xaml">
@@ -135,9 +162,17 @@
     <EmbeddedResource Update="Views\Templates\Styles.xaml">
       <Generator>MSBuild:Compile</Generator>
     </EmbeddedResource>
+    <EmbeddedResource Update="Views\Temp\Test.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
   </ItemGroup>
 
   <ItemGroup>
-    <Folder Include="ViewModels\Forms\" />
+    <Folder Include="Models\Forms\" />
+    <Folder Include="Models\LoginAndRegister\" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\..\PartyBuddiesAppDA\PartyBuddiesAppDA.csproj" />
   </ItemGroup>
 </Project>

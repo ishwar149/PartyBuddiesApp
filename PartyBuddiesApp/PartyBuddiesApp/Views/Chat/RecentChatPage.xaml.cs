@@ -20,6 +20,7 @@ namespace PartyBuddiesApp.Views.Chat
         public RecentChatPage()
         {
             InitializeComponent();
+            BindingContext = App.ViewModelLocator.RecentChatVM;
         }
 
         /// <summary>

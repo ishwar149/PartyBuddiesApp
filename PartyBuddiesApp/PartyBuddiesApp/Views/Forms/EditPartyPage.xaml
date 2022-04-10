@@ -1,0 +1,217 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="PartyBuddiesApp.Views.Forms.EditPartyPage"
+             xmlns:local="clr-namespace:PartyBuddiesApp.CustomBehaviours"
+             xmlns:range="clr-namespace:Syncfusion.SfRangeSlider.XForms;assembly=Syncfusion.SfRangeSlider.XForms"
+             xmlns:converter="clr-namespace:PartyBuddiesApp.Converters"
+             xmlns:buttons="clr-namespace:Syncfusion.XForms.Buttons;assembly=Syncfusion.Buttons.XForms">
+    <ContentPage.Resources>
+        <ResourceDictionary>
+            <converter:BooleanToColorConverter x:Key="ColorConverter" />
+            <ResourceDictionary.MergedDictionaries>
+                <ResourceDictionary Source="/Views/Forms/Styles.xaml" />
+            </ResourceDictionary.MergedDictionaries>
+        </ResourceDictionary>
+    </ContentPage.Resources>
+    <ContentPage.Content>
+        <ScrollView>
+            <StackLayout Padding="15,20,10,15" Orientation="Vertical">
+                <Label
+                        FontFamily="{StaticResource Montserrat-Medium}"
+                        HorizontalTextAlignment="Start"
+                        Style="{StaticResource LabelStyle}"
+                        Text="Party Type"
+                        TextColor="{DynamicResource Gray-800}" />
+                <StackLayout >
+                    <buttons:SfRadioGroup Orientation="Horizontal">
+                        <buttons:SfRadioButton TextColor="Black" x:Name="rdbtnAlcoholic" CheckedColor="Red" UncheckedColor="Red"   FontSize="Small" Text="Alcoholic">
+                            <buttons:SfRadioButton.Behaviors>
+                                <local:EventToCommandBehavior
+                                             EventName="StateChanged"
+                                             Command="{Binding PartyTypeChangeCommand}"
+                                             CommandParameter="{x:Reference rdbtnAlcoholic}"/>
+                            </buttons:SfRadioButton.Behaviors>
+                        </buttons:SfRadioButton>
+                        <buttons:SfRadioButton TextColor="Black"  x:Name="rdbtnNonAlcoholic" CheckedColor="Red" UncheckedColor="Red"  FontSize="Small" Text="Non-Alcoholic">
+                            <buttons:SfRadioButton.Behaviors>
+                                <local:EventToCommandBehavior
+                                             EventName="StateChanged"
+                                             Command="{Binding PartyTypeChangeCommand}"
+                                             CommandParameter="{x:Reference rdbtnNonAlcoholic}"/>
+                            </buttons:SfRadioButton.Behaviors>
+                        </buttons:SfRadioButton>
+                    </buttons:SfRadioGroup>
+                </StackLayout>
+
+                <Label
+                        FontFamily="{StaticResource Montserrat-Medium}"
+                        HorizontalTextAlignment="Start"
+                        Style="{StaticResource LabelStyle}"
+                        Text="Party Place"
+                        TextColor="{DynamicResource Gray-800}" />
+                <StackLayout  >
+                    <buttons:SfRadioGroup Orientation="Horizontal">
+                        <buttons:SfRadioButton TextColor="Black" x:Name="rdbtnPBH" CheckedColor="Red" UncheckedColor="Red"   FontSize="Small" Text="Pub, Bar or Hotel">
+                            <buttons:SfRadioButton.Behaviors>
+                                <local:EventToCommandBehavior
+                                             EventName="StateChanged"
+                                             Command="{Binding PartyPlaceChangeCommand}"
+                                             CommandParameter="{x:Reference rdbtnPBH}"/>
+                            </buttons:SfRadioButton.Behaviors>
+                        </buttons:SfRadioButton>
+                        <buttons:SfRadioButton TextColor="Black"  x:Name="rdbtnHouse" CheckedColor="Red" UncheckedColor="Red"  FontSize="Small" Text="House">
+                            <buttons:SfRadioButton.Behaviors>
+                                <local:EventToCommandBehavior
+                                             EventName="StateChanged"
+                                             Command="{Binding PartyPlaceChangeCommand}"
+                                             CommandParameter="{x:Reference rdbtnHouse}"/>
+                            </buttons:SfRadioButton.Behaviors>
+                        </buttons:SfRadioButton>
+                        <buttons:SfRadioButton TextColor="Black"  x:Name="rdbtnCar" CheckedColor="Red" UncheckedColor="Red"   FontSize="Small" Text="Car">
+                            <buttons:SfRadioButton.Behaviors>
+                                <local:EventToCommandBehavior
+                                             EventName="StateChanged"
+                                             Command="{Binding PartyPlaceChangeCommand}"
+                                             CommandParameter="{x:Reference rdbtnCar}"/>
+                            </buttons:SfRadioButton.Behaviors>
+                        </buttons:SfRadioButton>
+                        <buttons:SfRadioButton TextColor="Black"  x:Name="rdbtnNDY" CheckedColor="Red" UncheckedColor="Red"  FontSize="Small" Text="Not Decided">
+                            <buttons:SfRadioButton.Behaviors>
+                                <local:EventToCommandBehavior
+                                             EventName="StateChanged"
+                                             Command="{Binding PartyPlaceChangeCommand}"
+                                             CommandParameter="{x:Reference rdbtnNDY}"/>
+                            </buttons:SfRadioButton.Behaviors>
+                        </buttons:SfRadioButton>
+                    </buttons:SfRadioGroup>
+                </StackLayout>
+                <Label
+                        FontFamily="{StaticResource Montserrat-Medium}"
+                        HorizontalTextAlignment="Start"
+                        Style="{StaticResource LabelStyle}"
+                        Text="Buddy Preferences"
+                        TextColor="{DynamicResource Gray-800}" />
+                <StackLayout >
+                    <buttons:SfRadioGroup Orientation="Horizontal">
+                        <buttons:SfRadioButton TextColor="Black" x:Name="rdbtnMale" CheckedColor="Red" UncheckedColor="Red"   FontSize="Small" Text="Male">
+                            <buttons:SfRadioButton.Behaviors>
+                                <local:EventToCommandBehavior
+                                             EventName="StateChanged"
+                                             Command="{Binding BuddyPreferenceChangeCommand}"
+                                             CommandParameter="{x:Reference rdbtnMale}"/>
+                            </buttons:SfRadioButton.Behaviors>
+                        </buttons:SfRadioButton>
+                        <buttons:SfRadioButton TextColor="Black"  x:Name="rdbtnFemale" CheckedColor="Red" UncheckedColor="Red"  FontSize="Small" Text="Female">
+                            <buttons:SfRadioButton.Behaviors>
+                                <local:EventToCommandBehavior
+                                             EventName="StateChanged"
+                                             Command="{Binding BuddyPreferenceChangeCommand}"
+                                             CommandParameter="{x:Reference rdbtnFemale}"/>
+                            </buttons:SfRadioButton.Behaviors>
+                        </buttons:SfRadioButton>
+                        <buttons:SfRadioButton TextColor="Black" x:Name="rdbtnAny" CheckedColor="Red" UncheckedColor="Red"   FontSize="Small" Text="Any">
+                            <buttons:SfRadioButton.Behaviors>
+                                <local:EventToCommandBehavior
+                                             EventName="StateChanged"
+                                             Command="{Binding BuddyPreferenceChangeCommand}"
+                                             CommandParameter="{x:Reference rdbtnAny}"/>
+                            </buttons:SfRadioButton.Behaviors>
+                        </buttons:SfRadioButton>
+                    </buttons:SfRadioGroup>
+                </StackLayout>
+                <Label
+                        FontFamily="{StaticResource Montserrat-Medium}"
+                        HorizontalTextAlignment="Start"
+                        Style="{StaticResource LabelStyle}"
+                        Text="Buddy Age Preference"
+                        TextColor="{DynamicResource Gray-800}" />
+
+                <range:SfRangeSlider x:Name="rangeslider" HeightRequest="15" Orientation="Horizontal" RangeEnd="{Binding AgePreferenceEnd}" RangeStart="{Binding AgePreferenceStart}"  Minimum="18" Maximum="90" ShowRange="true" StepFrequency="1"/>
+                <StackLayout>
+                    <Label
+                        FontFamily="{StaticResource Montserrat-Medium}"
+                        HorizontalTextAlignment="Start"
+                        Style="{StaticResource LabelStyle}"
+                        Text="Date"
+                        TextColor="{DynamicResource Gray-800}" />
+                    <DatePicker TextColor="Black" Date="{Binding PartyDate}" HeightRequest="25" MinimumDate="{Binding MinimumDate}" />
+                </StackLayout>
+                <Label
+                        FontFamily="{StaticResource Montserrat-Medium}"
+                        HorizontalTextAlignment="Start"
+                        Style="{StaticResource LabelStyle}"
+                        Text="Time"
+                        TextColor="{DynamicResource Gray-800}" />
+                <Picker SelectedItem="{Binding PartyTime}" TitleColor="Red" HeightRequest="25">
+                    <Picker.ItemsSource>
+                        <x:Array Type="{x:Type x:String}">
+                            <x:String>Any</x:String>
+                            <x:String>Morning</x:String>
+                            <x:String>After-noon</x:String>
+                            <x:String>Evening</x:String>
+                            <x:String>Night</x:String>
+                        </x:Array>
+                    </Picker.ItemsSource>
+                </Picker>
+                <StackLayout  >
+                    <Label FontSize="Small" TextColor="Black" >Party Expences</Label>
+                    <buttons:SfRadioGroup Orientation="Horizontal">
+                        <buttons:SfRadioButton TextColor="Black" x:Name="rdbtnShared" CheckedColor="Red" UncheckedColor="Red"   FontSize="Small" Text="Shared">
+                            <buttons:SfRadioButton.Behaviors>
+                                <local:EventToCommandBehavior
+                                             EventName="StateChanged"
+                                             Command="{Binding PartyExpenceChangeCommand}"
+                                             CommandParameter="{x:Reference rdbtnShared}"/>
+                            </buttons:SfRadioButton.Behaviors>
+                        </buttons:SfRadioButton>
+                        <buttons:SfRadioButton TextColor="Black" x:Name="rdbtnPBM" CheckedColor="Red" UncheckedColor="Red"  FontSize="Small" Text="Paid by me">
+                            <buttons:SfRadioButton.Behaviors>
+                                <local:EventToCommandBehavior
+                                             EventName="StateChanged"
+                                             Command="{Binding PartyExpenceChangeCommand}"
+                                             CommandParameter="{x:Reference rdbtnPBM}"/>
+                            </buttons:SfRadioButton.Behaviors>
+                        </buttons:SfRadioButton>
+                    </buttons:SfRadioGroup>
+                </StackLayout>
+
+                <StackLayout  >
+                    <Label FontSize="Small" TextColor="Black" >Night Accomodation</Label>
+                    <buttons:SfRadioGroup Orientation="Horizontal">
+                        <buttons:SfRadioButton TextColor="Black" x:Name="rdbtnYes" CheckedColor="Red" UncheckedColor="Red"   FontSize="Small" Text="Yes">
+                            <buttons:SfRadioButton.Behaviors>
+                                <local:EventToCommandBehavior
+                                             EventName="StateChanged"
+                                             Command="{Binding NightAccomodationChangeCommand}"
+                                             CommandParameter="{x:Reference rdbtnYes}"/>
+                            </buttons:SfRadioButton.Behaviors>
+                        </buttons:SfRadioButton>
+                        <buttons:SfRadioButton TextColor="Black" x:Name="rdbtnNo" CheckedColor="Red" UncheckedColor="Red"  FontSize="Small" Text="No">
+                            <buttons:SfRadioButton.Behaviors>
+                                <local:EventToCommandBehavior
+                                             EventName="StateChanged"
+                                             Command="{Binding NightAccomodationChangeCommand}"
+                                             CommandParameter="{x:Reference rdbtnNo}"/>
+                            </buttons:SfRadioButton.Behaviors>
+                        </buttons:SfRadioButton>
+                        <buttons:SfRadioButton TextColor="Black" x:Name="rdbtnNotRequired" CheckedColor="Red" UncheckedColor="Red"  FontSize="Small" Text="Not Required">
+                            <buttons:SfRadioButton.Behaviors>
+                                <local:EventToCommandBehavior
+                                             EventName="StateChanged"
+                                             Command="{Binding NightAccomodationChangeCommand}"
+                                             CommandParameter="{x:Reference rdbtnNotRequired}"/>
+                            </buttons:SfRadioButton.Behaviors>
+                        </buttons:SfRadioButton>
+                    </buttons:SfRadioGroup>
+                </StackLayout>
+                <buttons:SfButton
+                        Command="{Binding UpdateParty}"
+                        Grid.Row="6"
+                        Margin="0,16"
+                        Style="{StaticResource SfButtonStyle}"
+                        Text="Update Party" IsEnabled="{Binding UpdateEnabled}" />
+            </StackLayout>
+        </ScrollView>
+    </ContentPage.Content>
+</ContentPage>

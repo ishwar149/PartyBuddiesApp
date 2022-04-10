@@ -1,6 +1,9 @@
 using System;
 using System.Collections.ObjectModel;
+using System.Threading.Tasks;
+using Microsoft.AspNetCore.SignalR.Client;
 using PartyBuddiesApp.Models.Chat;
+using PartyBuddiesAppDA.BusinessObjects;
 using Xamarin.Forms;
 using Xamarin.Forms.Internals;
 
@@ -51,8 +54,8 @@ namespace PartyBuddiesApp.ViewModels.Chat
             this.SendCommand = new Command(this.SendClicked);
             this.BackCommand = new Command(this.BackButtonClicked);
             this.ProfileCommand = new Command(this.ProfileClicked);
-
             this.GenerateMessageInfo();
+            SignalRChatSetup();
         }
 
         #endregion
@@ -264,6 +267,16 @@ namespace PartyBuddiesApp.ViewModels.Chat
         /// <param name="obj">The object</param>
         private void SendClicked(object obj)
         {
+            //var hubConnection = new HubConnectionBuilder().WithUrl("http://192.168.1.106:45457/", options =>
+            //{
+            //options.AccessTokenProvider = () => Task.FromResult("eZVzpSwvxBaLZTiEGEh2MwSKwEEcSN3htd5faSeVimZtAbTGFsYrtfdIAM5F9FFrwrEbRQX42zKAzs0FcwEsEqMTv4_Iouco_jCb8JxJF-wyAFtfKx2TJNmwCpKv8HdFfBq3gx81CkqTakS_Jn_yJw9L-kBx1SbvQeN0yvccvTpGpEI2O-1IP6ANH2Gdi04gEWyvLQFtc7U6VnRXeOxfK8FKc0CHVyCVvZAk_5iqK0cdpbsLJxjVw4tg9dCcXUK5Xxc2NHJd5djsjXlKe6KUh8pVDkn60nDUNnjZJGz0pz6WLrMrudHoWu2CtlbxVpz6Lomxnvbh66FGds1LQ1UyE7H7fb9iCzeJg9j1JidSz2U55brXWBu7VBeA1xkmapb9OILOsiqOjb8XO7UVw7V_rpluxdXFKZ1CAbsEoyOMOe5j4DKLOakC_gIIN76t--KKMEfDTGyZHfv1nFIJSFUmHdmNfdztp_KEoiVXphgqRGpBP0pA516gpkdq47_OA4qV");
+            //}).Build();
+
+
+            // var hubConnection = new HubConnectionBuilder().WithUrl("http://192.168.1.106:45457/").Build();
+            var hubConnection = new HubConnectionBuilder().WithUrl("http://seekparties.com/").Build();
+            hubConnection.StartAsync().Wait();
+            UserMessage Message = new UserMessage() { MessageFrom = Email, MessageText = this.NewMessage, MessageTo = "ishwar3972@gmail.com" };
             if (!string.IsNullOrWhiteSpace(this.NewMessage))
             {
                 this.ChatMessageInfo.Add(new ChatMessage

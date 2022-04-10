@@ -7,9 +7,6 @@
     xmlns:buttons="clr-namespace:Syncfusion.XForms.Buttons;assembly=Syncfusion.Buttons.XForms"
     xmlns:control="clr-namespace:PartyBuddiesApp.Controls"
     xmlns:converter="clr-namespace:PartyBuddiesApp.Converters"
-    xmlns:core="clr-namespace:Syncfusion.XForms.Core;assembly=Syncfusion.Core.XForms"
-    xmlns:local="clr-namespace:PartyBuddiesApp.Views.Forms"
-    xmlns:viewModel="clr-namespace:PartyBuddiesApp.ViewModels.LoginAndRegister"
     xmlns:ImgResource="clr-namespace:PartyBuddiesApp.Images;assembly=PartyBuddiesApp"
     BackgroundColor="{DynamicResource SnowWhite}"
     NavigationPage.HasNavigationBar="False">
@@ -23,11 +20,6 @@
         </ResourceDictionary>
     </ContentPage.Resources>
 
-    <!--  Binding context for login page  -->
-    <ContentPage.BindingContext>
-        <viewModel:LoginPageViewModel />
-    </ContentPage.BindingContext>
-
     <ContentPage.Content>
         <ScrollView HorizontalOptions="Center">
             <ScrollView.VerticalOptions>
@@ -37,7 +29,7 @@
                     Phone="FillAndExpand" />
             </ScrollView.VerticalOptions>
 
-            <StackLayout>
+            <StackLayout Padding="10" WidthRequest="500">
 
                 <Grid RowSpacing="0" VerticalOptions="CenterAndExpand">
 
@@ -52,10 +44,9 @@
                         <RowDefinition Height="Auto" />
                         <RowDefinition Height="Auto" />
                     </Grid.RowDefinitions>
-
                     <!-- Party Buddies Icon   -->
                     <Image HorizontalOptions="Center" Source="{ImgResource:ImageResource PartyBuddiesApp.Images.PartyBuddies.PNG}" HeightRequest="140">
-                        
+
                     </Image>
 
                     <Label
@@ -77,14 +68,27 @@
                         Text="Log In"
                         TextColor="{DynamicResource Gray-900}" />
 
-                                   
+
                     <!--  Entry to get email ID from user  -->
-                    <local:SimpleEmailEntry Grid.Row="3" Padding="0,24" />
+                    <border:SfBorder
+                        Grid.Row="3"
+                        BackgroundColor="{DynamicResource Gray-White}"
+                        BorderColor="{Binding Source={x:Reference EmailEntry}, Path=IsFocused, Converter={StaticResource ColorConverter}, ConverterParameter=3}"
+                        Style="{StaticResource SfBorderStyle}">
+                        <control:BorderlessEntry
+                            x:Name="EmailEntry"
+                            Placeholder="Email"
+                            PlaceholderColor="{DynamicResource Gray-700}"
+                            Style="{StaticResource EntryStyle}"
+                            Text="{Binding Email}"
+                            TextColor="{DynamicResource Gray-900}" />
+                    </border:SfBorder>
 
                     <!--  Entry to get password from user  -->
                     <border:SfBorder
                         Grid.Row="4"
                         BackgroundColor="{DynamicResource Gray-White}"
+                        Margin="0,16"
                         BorderColor="{Binding Source={x:Reference PasswordEntry}, Path=IsFocused, Converter={StaticResource ColorConverter}, ConverterParameter=3}"
                         Style="{StaticResource SfBorderStyle}">
                         <control:BorderlessEntry
@@ -96,7 +100,7 @@
                             Text="{Binding Password}"
                             TextColor="{DynamicResource Gray-900}" />
                     </border:SfBorder>
-
+                    
                     <!--  Forgot password link  -->
                     <Label
                         x:Name="ForgotPasswordLabel"
@@ -164,14 +168,6 @@
                     Orientation="Horizontal"
                     Spacing="1"
                     VerticalOptions="End">
-
-                    <StackLayout.Padding>
-                        <OnIdiom
-                            x:DataType="Thickness"
-                            Default="0, 48, 0, 0"
-                            Phone="0" />
-                    </StackLayout.Padding>
-
                     <Label
                         FontFamily="{StaticResource Montserrat-Medium}"
                         HorizontalOptions="CenterAndExpand"
@@ -187,7 +183,7 @@
                         CornerRadius="4"
                         Style="{StaticResource SfFlatButtonStyle}"
                         Text="Sign Up" />
-                    </StackLayout>
+                </StackLayout>
 
             </StackLayout>
         </ScrollView>

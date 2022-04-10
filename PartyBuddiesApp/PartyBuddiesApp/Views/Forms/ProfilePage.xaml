@@ -19,20 +19,17 @@
     <ContentPage.Content>
         <ScrollView>
             <StackLayout Orientation="Vertical" Padding="10">
-                <cards:SfCardLayout SwipeDirection="Left" HeightRequest="400" BackgroundColor="#F0F0F0" ShowSwipedCard="true">
-                    <cards:SfCardView>
-                        <Label  Text="Cyan" BackgroundColor="Cyan"/>
-                    </cards:SfCardView>
-                    <cards:SfCardView>
-                        <Label  Text="Yellow" BackgroundColor="Yellow"/>
-                    </cards:SfCardView>
-                    <cards:SfCardView>
-                        <Label  Text="Orange" BackgroundColor="Orange"/>
-                    </cards:SfCardView>
+                <cards:SfCardLayout BindableLayout.ItemsSource="{Binding UserImages}"  SwipeDirection="Left" VerticalOptions="Center"  HeightRequest="400" BackgroundColor="#F0F0F0" ShowSwipedCard="true">
+                    <BindableLayout.ItemTemplate>
+                        <DataTemplate>
+                            <cards:SfCardView>
+                                <Image Aspect="AspectFill" Source="{Binding ImageUrl}" />
+                            </cards:SfCardView>
+                        </DataTemplate>
+                    </BindableLayout.ItemTemplate>
                 </cards:SfCardLayout>
-
                 <buttons:SfButton
-                        Grid.Row="6"
+                        Command="{Binding UploadImagesCommand}"
                         Margin="10,16,10,16"
                         Style="{StaticResource SfButtonStyle}"
                         Text="Upload Images" />
@@ -51,10 +48,10 @@
                         Style="{StaticResource SfBorderStyle}">
                             <control:BorderlessEntry
                             x:Name="Name"
-                            Placeholder="Password"
+                            Placeholder="Name"
                             PlaceholderColor="{DynamicResource Gray-700}"
                             Style="{StaticResource EntryStyle}"
-                            Text="Ishwardeep Singh"
+                            Text="{Binding Name}"
                             TextColor="{DynamicResource Gray-900}"
                             WidthRequest="200" />
                         </border:SfBorder>
@@ -77,7 +74,7 @@
                             Placeholder="Date of Birth"
                             PlaceholderColor="{DynamicResource Gray-700}"
                             Style="{StaticResource EntryStyle}"
-                            Text="14 August 1990"
+                            Text="{Binding DateOfBirth}"
                             TextColor="{DynamicResource Gray-900}" WidthRequest="200" />
                         </border:SfBorder>
                     </StackLayout>
@@ -99,7 +96,7 @@
                             Placeholder="Location"
                             PlaceholderColor="{DynamicResource Gray-700}"
                             Style="{StaticResource EntryStyle}"
-                            Text="Chandigarh"
+                            Text="{Binding Location}"
                             TextColor="{DynamicResource Gray-900}" WidthRequest="200" />
                         </border:SfBorder>
                     </StackLayout>
@@ -121,7 +118,7 @@
                             Placeholder="Sex"
                             PlaceholderColor="{DynamicResource Gray-700}"
                             Style="{StaticResource EntryStyle}"
-                            Text="Male"
+                            Text="{Binding Sex}"
                             TextColor="{DynamicResource Gray-900}" WidthRequest="200" />
                         </border:SfBorder>
                     </StackLayout>
@@ -143,7 +140,7 @@
                             Placeholder="Parties Hosted"
                             PlaceholderColor="{DynamicResource Gray-700}"
                             Style="{StaticResource EntryStyle}"
-                            Text="20"
+                            Text="{Binding PartiesHosted}"
                             TextColor="{DynamicResource Gray-900}" WidthRequest="200" />
                         </border:SfBorder>
                     </StackLayout>
@@ -165,7 +162,7 @@
                             Placeholder="Tours Hosted"
                             PlaceholderColor="{DynamicResource Gray-700}"
                             Style="{StaticResource EntryStyle}"
-                            Text="10"
+                            Text="{Binding ToursHosted}"
                             TextColor="{DynamicResource Gray-900}" WidthRequest="200" />
                         </border:SfBorder>
                     </StackLayout>
@@ -175,6 +172,13 @@
                         Margin="0,16"
                         Style="{StaticResource SfButtonStyle}"
                         Text="Save Changes" />
+
+
+                    <buttons:SfButton
+                        Command="{Binding LogOutCommand}"
+                        CornerRadius="4"
+                        Style="{StaticResource SfFlatButtonStyle}"
+                        Text="Log Out" />
                 </StackLayout>
             </StackLayout>
         </ScrollView>

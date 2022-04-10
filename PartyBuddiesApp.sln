@@ -7,7 +7,9 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PartyBuddiesApp.Android", "
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PartyBuddiesApp.iOS", "PartyBuddiesApp\PartyBuddiesApp.iOS\PartyBuddiesApp.iOS.csproj", "{8797C90E-C743-475E-91A8-337967D286B2}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PartyBuddiesApp", "PartyBuddiesApp\PartyBuddiesApp\PartyBuddiesApp.csproj", "{F4BDDF8A-61B7-4A2F-B469-4672F93F44BB}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "PartyBuddiesApp", "PartyBuddiesApp\PartyBuddiesApp\PartyBuddiesApp.csproj", "{F4BDDF8A-61B7-4A2F-B469-4672F93F44BB}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "PartyBuddiesAppDA", "PartyBuddiesAppDA\PartyBuddiesAppDA.csproj", "{B211007E-A89C-4A0B-968D-756F4A670DA8}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -73,6 +75,18 @@ Global
 		{F4BDDF8A-61B7-4A2F-B469-4672F93F44BB}.Release|iPhoneSimulator.ActiveCfg = Release|Any CPU
 		{F4BDDF8A-61B7-4A2F-B469-4672F93F44BB}.Release|iPhoneSimulator.Build.0 = Release|Any CPU
 		{F4BDDF8A-61B7-4A2F-B469-4672F93F44BB}.Release|iPhoneSimulator.Deploy.0 = Release|Any CPU
+		{B211007E-A89C-4A0B-968D-756F4A670DA8}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B211007E-A89C-4A0B-968D-756F4A670DA8}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B211007E-A89C-4A0B-968D-756F4A670DA8}.Debug|iPhone.ActiveCfg = Debug|Any CPU
+		{B211007E-A89C-4A0B-968D-756F4A670DA8}.Debug|iPhone.Build.0 = Debug|Any CPU
+		{B211007E-A89C-4A0B-968D-756F4A670DA8}.Debug|iPhoneSimulator.ActiveCfg = Debug|Any CPU
+		{B211007E-A89C-4A0B-968D-756F4A670DA8}.Debug|iPhoneSimulator.Build.0 = Debug|Any CPU
+		{B211007E-A89C-4A0B-968D-756F4A670DA8}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B211007E-A89C-4A0B-968D-756F4A670DA8}.Release|Any CPU.Build.0 = Release|Any CPU
+		{B211007E-A89C-4A0B-968D-756F4A670DA8}.Release|iPhone.ActiveCfg = Release|Any CPU
+		{B211007E-A89C-4A0B-968D-756F4A670DA8}.Release|iPhone.Build.0 = Release|Any CPU
+		{B211007E-A89C-4A0B-968D-756F4A670DA8}.Release|iPhoneSimulator.ActiveCfg = Release|Any CPU
+		{B211007E-A89C-4A0B-968D-756F4A670DA8}.Release|iPhoneSimulator.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

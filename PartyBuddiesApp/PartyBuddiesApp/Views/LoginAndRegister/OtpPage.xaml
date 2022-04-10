@@ -1,0 +1,96 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="PartyBuddiesApp.Views.LoginAndRegister.OtpPage"
+             xmlns:viewModel="clr-namespace:PartyBuddiesApp.ViewModels.LoginAndRegister"
+             xmlns:ImgResource="clr-namespace:PartyBuddiesApp.Images;assembly=PartyBuddiesApp"
+             xmlns:converter="clr-namespace:PartyBuddiesApp.Converters"
+             xmlns:border="clr-namespace:Syncfusion.XForms.Border;assembly=Syncfusion.Core.XForms"
+             xmlns:control="clr-namespace:PartyBuddiesApp.Controls"
+             xmlns:buttons="clr-namespace:Syncfusion.XForms.Buttons;assembly=Syncfusion.Buttons.XForms"
+             BackgroundColor="{DynamicResource SnowWhite}"
+             NavigationPage.HasNavigationBar="False">
+
+    <ContentPage.Resources>
+        <ResourceDictionary>
+            <converter:BooleanToColorConverter x:Key="ColorConverter" />
+            <ResourceDictionary.MergedDictionaries>
+                <ResourceDictionary Source="/Views/Forms/Styles.xaml" />
+            </ResourceDictionary.MergedDictionaries>
+        </ResourceDictionary>
+    </ContentPage.Resources>
+
+    <!--  Binding context for login page  -->
+    <!--<ContentPage.BindingContext>
+        <viewModel:OtpPageViewModel />
+    </ContentPage.BindingContext>-->
+
+    <ContentPage.Content>
+        <ScrollView HorizontalOptions="Center">
+            <ScrollView.VerticalOptions>
+                <OnIdiom
+                    x:TypeArguments="LayoutOptions"
+                    Default="CenterAndExpand"
+                    Phone="FillAndExpand" />
+            </ScrollView.VerticalOptions>
+
+            <StackLayout HorizontalOptions="Center" WidthRequest="500">
+                <StackLayout HorizontalOptions="Center">
+                    <!-- Party Buddies Icon   -->
+                    <Image HorizontalOptions="Center" Source="{ImgResource:ImageResource PartyBuddiesApp.Images.PartyBuddies.PNG}" ></Image>
+
+                    <!--  Label to display the title of this page  -->
+                    <Label
+                        FontFamily="{StaticResource Montserrat-SemiBold}"
+                        FontSize="20"
+                        HorizontalOptions="Center"
+                        Style="{StaticResource LabelStyle}"
+                        Text="Party Buddies"
+                        TextColor="{DynamicResource Gray-900}" />
+
+                    <Label x:Name="lblEmail" IsVisible="false" Text="{Binding Email}" />
+
+                    <!--  Label to display the title of this page  -->
+                    <Label
+                        FontFamily="{StaticResource Montserrat-SemiBold}"
+                        FontSize="20"
+                        HorizontalOptions="Center"
+                        Style="{StaticResource LabelStyle}"
+                        Text="Verify OTP"
+                        TextColor="{DynamicResource Gray-900}"  />
+
+                </StackLayout>
+                <StackLayout Margin="10,40,10,0" Spacing="20">
+                    <border:SfBorder
+                        BackgroundColor="{DynamicResource Gray-White}"
+                        BorderColor="{Binding Source={x:Reference OtpEntry}, Path=IsFocused, Converter={StaticResource ColorConverter}, ConverterParameter=3}"
+                        Style="{StaticResource SfBorderStyle}">
+                        <control:BorderlessEntry
+                            x:Name="OtpEntry"
+                            Placeholder="OTP"
+                            PlaceholderColor="{DynamicResource Gray-700}"
+                            Style="{StaticResource EntryStyle}"
+                            Text="{Binding OTP}"
+                            TextColor="{DynamicResource Gray-900}" />
+                    </border:SfBorder>
+
+
+                    <!--  Otp button  -->
+                    <buttons:SfButton 
+                        Command="{Binding VerifyOtpCommand}"
+                        CornerRadius="20"
+                        FontFamily="{StaticResource Montserrat-SemiBold}"
+                        Style="{StaticResource SfButtonStyle}"
+                        Text="Verify" WidthRequest="250" 
+                        HorizontalOptions="Center" />
+
+                    <buttons:SfButton
+                        Command="{Binding LoginCommand}"
+                        CornerRadius="4"
+                        Style="{StaticResource SfFlatButtonStyle}"
+                        Text="Log In" />
+                </StackLayout>
+            </StackLayout>
+        </ScrollView>
+    </ContentPage.Content>
+</ContentPage>

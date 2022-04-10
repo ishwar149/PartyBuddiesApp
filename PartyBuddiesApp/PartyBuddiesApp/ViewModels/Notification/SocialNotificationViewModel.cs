@@ -1,5 +1,10 @@
-﻿using PartyBuddiesApp.Models.Notification;
+﻿using Acr.UserDialogs;
+using GalaSoft.MvvmLight.Views;
+using PartyBuddiesApp.Models.Notification;
+using Plugin.FirebasePushNotification;
 using System.Collections.ObjectModel;
+using System.ComponentModel;
+using System.Runtime.CompilerServices;
 using System.Runtime.Serialization;
 using Xamarin.Forms;
 using Xamarin.Forms.Internals;
@@ -7,19 +12,20 @@ using Xamarin.Forms.Internals;
 namespace PartyBuddiesApp.ViewModels.Notification
 {
     /// <summary>
-    /// ViewModel for the Notification page.
+    /// ViewModel for login page.
     /// </summary>
     [Preserve(AllMembers = true)]
-    [DataContract]
     public class SocialNotificationViewModel : BaseViewModel
     {
         #region Fields
-
+        private INavigationService _navigationService;
         private Command<object> itemTappedCommand;
 
         private Command<object> backCommand;
 
         private Command<object> menuCommand;
+
+        private ObservableCollection<SocialNotificationModel> _recentList;
 
         #endregion
 
@@ -28,9 +34,9 @@ namespace PartyBuddiesApp.ViewModels.Notification
         /// <summary>
         /// Initializes a new instance for the <see cref="SocialNotificationViewModel"/> class.
         /// </summary>
-        public SocialNotificationViewModel()
+        public SocialNotificationViewModel(INavigationService navigationService)
         {
-
+            _navigationService = navigationService;
         }
 
         #endregion
@@ -70,16 +76,17 @@ namespace PartyBuddiesApp.ViewModels.Notification
             }
         }
 
-        /// <summary>
-        /// Gets or sets a collection of values to be displayed in the social notification page recent list.
-        /// </summary>
-        [DataMember(Name = "recentSocialNotificationList")]
-        public ObservableCollection<SocialNotificationModel> RecentList { get; set; }
+        public ObservableCollection<SocialNotificationModel> RecentList
+        {
+            get { return _recentList; }
+            set
+            {
+                _recentList = value;
+                this.NotifyPropertyChanged();
+            }
+        }
 
-        /// <summary>
-        /// Gets or sets a collection of values to be displayed in the social notification page earlier list.
-        /// </summary>
-        [DataMember(Name = "earlierSocialNotificationList")]
+
         public ObservableCollection<SocialNotificationModel> EarlierList { get; set; }
 
         #endregion
@@ -102,7 +109,8 @@ namespace PartyBuddiesApp.ViewModels.Notification
         /// <param name="obj">The object.</param>
         private void BackButtonClicked(object obj)
         {
-            (App.Current.MainPage as NavigationPage).PopAsync();
+            _navigationService.GoBack();
+            //(App.Current.MainPage as NavigationPage).PopAsync();
         }
 
         /// <summary>
@@ -115,5 +123,6 @@ namespace PartyBuddiesApp.ViewModels.Notification
         }
 
         #endregion
+
     }
 }

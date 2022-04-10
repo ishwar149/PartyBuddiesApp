@@ -14,6 +14,7 @@ namespace PartyBuddiesApp.Views.Forms
     {
         public ProfilePage()
         {
+            BindingContext = App.ViewModelLocator.ProfilePageVM;
             InitializeComponent();
         }
     }

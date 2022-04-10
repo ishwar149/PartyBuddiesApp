@@ -14,10 +14,6 @@
     NavigationPage.HasNavigationBar="False">
 
 
-    <ContentPage.BindingContext>
-        <viewModel:RecentChatViewModel />
-    </ContentPage.BindingContext>
-
     <ContentPage.Resources>
         <ResourceDictionary>
             <converter:StringToBadgeIconConverter x:Key="BadgeConverter" />
@@ -110,21 +106,7 @@
                     </border:SfBorder>
                 </StackLayout>
 
-                <!--  Search Button  -->
-                <buttons:SfButton
-                    x:Name="SearchButton"
-                    BindingContext="{x:Reference ProfileView}"
-                    Clicked="SearchButton_Clicked"
-                    IsVisible="{Binding Path=IsVisible}"
-                    Style="{StaticResource NavigationBarButtonStyle}"
-                    Text="{StaticResource Search}" />
-
-                <!--  Menu Button  -->
-                <buttons:SfButton
-                    x:Name="MenuButton"
-                    Command="{Binding MenuCommand}"
-                    Style="{StaticResource NavigationBarButtonStyle}"
-                    Text="{StaticResource Menu}" />
+             
             </StackLayout>
 
             <BoxView BackgroundColor="{DynamicResource Gray-200}" HeightRequest="1" />

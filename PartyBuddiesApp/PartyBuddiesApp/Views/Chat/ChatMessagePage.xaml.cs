@@ -19,7 +19,7 @@ namespace PartyBuddiesApp.Views.Chat
         {
 
             InitializeComponent();
-
+            BindingContext = App.ViewModelLocator.ChatMessageVM;
             ListView.DataSource.GroupDescriptors.Add(new GroupDescriptor
             {
                 PropertyName = "Time",

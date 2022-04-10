@@ -1,12 +1,68 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             x:Class="PartyBuddiesApp.Views.Forms.PartiesPage">
+             x:Class="PartyBuddiesApp.Views.Forms.PartiesPage"
+             xmlns:converter="clr-namespace:PartyBuddiesApp.Converters">
+    <ContentPage.Resources>
+        <ResourceDictionary>
+            <converter:BooleanToColorConverter x:Key="ColorConverter" />
+            <ResourceDictionary.MergedDictionaries>
+                <ResourceDictionary Source="/Views/Forms/Styles.xaml" />
+            </ResourceDictionary.MergedDictionaries>
+        </ResourceDictionary>
+    </ContentPage.Resources>
     <ContentPage.Content>
-        <StackLayout>
-            <Label Text="Welcome to Xamarin.Forms!"
-                VerticalOptions="CenterAndExpand" 
-                HorizontalOptions="CenterAndExpand" />
-        </StackLayout>
+        <ScrollView>
+            <StackLayout>
+                <Label
+                        FontFamily="{StaticResource Montserrat-Medium}"
+                        HorizontalTextAlignment="Start"
+                        Style="{StaticResource LabelStyle}"
+                        Text="Future Parties"
+                        FontSize="Large"
+                        TextColor="{DynamicResource Gray-800}" />
+                <ListView RowHeight="80" x:Name="FutureParties" ItemsSource="{Binding FuturePartiesList}" IsVisible="True">
+                    <ListView.ItemTemplate>
+                        <DataTemplate>
+                            <ViewCell>
+                                <StackLayout>
+                                    <StackLayout Orientation="Horizontal">
+                                        <Label Text="{Binding PartyDateString}"></Label>
+                                        <Label Text="{Binding PartyAlcoholic}"></Label>
+                                    </StackLayout>
+                                    <StackLayout Orientation="Horizontal">
+                                        <Button Text="Edit" Command="{Binding EditPartyCommand}" CommandParameter="{Binding ID}" ></Button>
+                                        <Button Text="Requests"></Button>
+                                        <Button Text="Cancel Party"></Button>
+                                        <Button Text="Hide"></Button>
+                                    </StackLayout>
+                                </StackLayout>
+                            </ViewCell>
+                        </DataTemplate>
+                    </ListView.ItemTemplate>
+                </ListView>
+                <Label
+                        FontFamily="{StaticResource Montserrat-Medium}"
+                        HorizontalTextAlignment="Start"
+                        Style="{StaticResource LabelStyle}"
+                        FontSize="Large"
+                        Text="Past Parties"
+                        TextColor="{DynamicResource Gray-800}" />
+                <ListView RowHeight="40" x:Name="PastParties" ItemsSource="{Binding PastPartiesList}" IsVisible="True">
+                    <ListView.ItemTemplate>
+                        <DataTemplate>
+                            <ViewCell>
+                                <StackLayout>
+                                    <StackLayout Orientation="Horizontal">
+                                        <Label Text="{Binding PartyDateString}"></Label>
+                                        <Label Text="{Binding PartyAlcoholic}"></Label>
+                                    </StackLayout>
+                                </StackLayout>
+                            </ViewCell>
+                        </DataTemplate>
+                    </ListView.ItemTemplate>
+                </ListView>
+            </StackLayout>
+        </ScrollView>
     </ContentPage.Content>
 </ContentPage>

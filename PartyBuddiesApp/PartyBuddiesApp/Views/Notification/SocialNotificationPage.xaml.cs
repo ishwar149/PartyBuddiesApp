@@ -1,4 +1,5 @@
 ﻿using PartyBuddiesApp.DataService;
+using PartyBuddiesApp.Navigation;
 using Xamarin.Forms;
 using Xamarin.Forms.Internals;
 using Xamarin.Forms.Xaml;
@@ -18,7 +19,7 @@ namespace PartyBuddiesApp.Views.Notification
         public SocialNotificationPage()
         {
             InitializeComponent();
-            this.BindingContext = SocialNotificationDataService.Instance.SocialNotificationViewModel;
+            this.BindingContext = App.ViewModelLocator.SocialNotificationVM;
         }
     }
 }

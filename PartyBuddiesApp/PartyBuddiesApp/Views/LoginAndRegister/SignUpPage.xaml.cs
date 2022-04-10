@@ -17,5 +17,10 @@ namespace PartyBuddiesApp.Views.LoginAndRegister
         {
             InitializeComponent();
         }
+
+        void DatePicker_Clicked(object sender, System.EventArgs e)
+        {
+            this.datepicker.IsOpen = true;
+        }
     }
 }

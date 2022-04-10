@@ -21,7 +21,7 @@ namespace PartyBuddiesApp.Views.Forms
             On<Xamarin.Forms.PlatformConfiguration.Android>().SetIsSwipePagingEnabled(false);
             this.SelectedTabColor = Color.Black;
             this.UnselectedTabColor = Color.White;
-            this.BarBackgroundColor = Color.FromHex("#F24A67");
+            this.BarBackgroundColor = Color.Silver;
         }
     }
 }

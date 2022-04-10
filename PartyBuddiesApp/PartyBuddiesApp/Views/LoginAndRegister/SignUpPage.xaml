@@ -8,10 +8,14 @@
     xmlns:SfCalendar="clr-namespace:Syncfusion.SfCalendar.XForms;assembly=Syncfusion.SfCalendar.XForms"
     xmlns:control="clr-namespace:PartyBuddiesApp.Controls"
     xmlns:converter="clr-namespace:PartyBuddiesApp.Converters"
+    xmlns:syncfusion="clr-namespace:Syncfusion.XForms.Pickers;assembly=Syncfusion.SfPicker.XForms"
     xmlns:core="clr-namespace:Syncfusion.XForms.Core;assembly=Syncfusion.Core.XForms"
     xmlns:local="clr-namespace:PartyBuddiesApp.Views.Forms"
+    xmlns:CustomBehaviour="clr-namespace:PartyBuddiesApp.CustomBehaviours"
     xmlns:viewModel="clr-namespace:PartyBuddiesApp.ViewModels.LoginAndRegister"
+    xmlns:sys="clr-namespace:System;assembly=mscorlib"
     xmlns:ImgResource="clr-namespace:PartyBuddiesApp.Images;assembly=PartyBuddiesApp"
+    xmlns:Custom="clr-namespace:PartyBuddiesApp.Custom"
     Title="Sign Up"
     BackgroundColor="{DynamicResource SnowWhite}"
     NavigationPage.HasNavigationBar="False">
@@ -39,9 +43,9 @@
                     Phone="FillAndExpand" />
             </ScrollView.VerticalOptions>
 
-            <StackLayout Margin="10,0,10,0">
-                <StackLayout HorizontalOptions="Center">
-                   <StackLayout HorizontalOptions="Center">
+            <StackLayout Padding="10">
+                <StackLayout HorizontalOptions="Center" WidthRequest="500">
+                    <StackLayout HorizontalOptions="Center">
                         <!-- Party Buddies Icon   -->
                         <Image HorizontalOptions="Center" Source="{ImgResource:ImageResource PartyBuddiesApp.Images.PartyBuddies.PNG}" ></Image>
 
@@ -53,8 +57,6 @@
                         Style="{StaticResource LabelStyle}"
                         Text="Party Buddies"
                         TextColor="{DynamicResource Gray-900}" />
-                        
-                        
                         <!--  Label to display the title of this page  -->
                         <Label
                         FontFamily="{StaticResource Montserrat-SemiBold}"
@@ -65,7 +67,7 @@
                         TextColor="{DynamicResource Gray-900}" />
                     </StackLayout>
 
-                    <StackLayout HorizontalOptions="Center" Spacing="14">
+                    <StackLayout Spacing="14">
                         <!--  Entry to get username from user  -->
                         <border:SfBorder
                         BackgroundColor="{DynamicResource Gray-White}"
@@ -80,62 +82,100 @@
                             TextColor="{DynamicResource Gray-900}" />
                         </border:SfBorder>
 
-                        <!--  Entry to get email ID from user  -->
-                        <local:SimpleEmailEntry />
-
-
+                        <border:SfBorder
+                        Grid.Row="4"
+                        BackgroundColor="{DynamicResource Gray-White}"
+                        BorderColor="{Binding Source={x:Reference EmailEntry}, Path=IsFocused, Converter={StaticResource ColorConverter}, ConverterParameter=3}"
+                        Style="{StaticResource SfBorderStyle}">
+                            <control:BorderlessEntry
+                            x:Name="EmailEntry"
+                            Placeholder="Email"
+                            PlaceholderColor="{DynamicResource Gray-700}"
+                            Style="{StaticResource EntryStyle}"
+                            Text="{Binding Email}"
+                            TextColor="{DynamicResource Gray-900}" />
+                        </border:SfBorder>
                         <!--  Entry to get Mobile Number from user  -->
                         <border:SfBorder
                         BackgroundColor="{DynamicResource Gray-White}"
-                        BorderColor="{Binding Source={x:Reference MonbileNumberEntry}, Path=IsFocused, Converter={StaticResource ColorConverter}, ConverterParameter=3}"
+                        BorderColor="{Binding Source={x:Reference MobileNumberEntry}, Path=IsFocused, Converter={StaticResource ColorConverter}, ConverterParameter=3}"
                         Style="{StaticResource SfBorderStyle}">
                             <control:BorderlessEntry
-                            x:Name="MonbileNumberEntry"
-                            Placeholder="Monbile Number"
+                            x:Name="MobileNumberEntry"
+                            Placeholder="Mobile Number"
                             PlaceholderColor="{DynamicResource Gray-700}"
                             Style="{StaticResource EntryStyle}"
-                            Text="{Binding Name}"
+                            Text="{Binding MobileNumber}"
                             TextColor="{DynamicResource Gray-900}" />
                         </border:SfBorder>
 
                     </StackLayout>
-                    
+
                     <StackLayout>
-                    <Label
-                        Margin="10,10,0,0"
-                        FontFamily="{StaticResource Montserrat-Medium}"
-                        HorizontalTextAlignment="Start"
-                        Style="{StaticResource LabelStyle}"
-                        Text="Date of Birth"
-                        TextColor="{DynamicResource Gray-800}" />
-                        <DatePicker TextColor="Black" Margin="10,-10,0,0" MinimumDate="01/01/1900" MaximumDate="01/01/2000" />
+                        <syncfusion:SfDatePicker PickerMode="Dialog"  x:Name="datepicker"
+                                 Format="M_d_yyyy" ShowFooter="True" MinimumDate="01/01/1940"
+                        MaximumDate="{Binding sys:Datetime.now}" Date="{Binding DateOfBirth}"/>
+                        <border:SfBorder
+                        BackgroundColor="{DynamicResource Gray-White}"
+                        BorderColor="{Binding Source={x:Reference DateOfBirth}, Path=IsFocused, Converter={StaticResource ColorConverter}, ConverterParameter=3}"
+                        Style="{StaticResource SfBorderStyle}">
+                            <control:BorderlessEntry
+                            x:Name="DateOfBirth"
+                            Placeholder="Date Of Birth"
+                            PlaceholderColor="{DynamicResource Gray-700}"
+                            Style="{StaticResource EntryStyle}"
+                            Text="{Binding DateOfBirth}"
+                            TextColor="{DynamicResource Gray-900}" Focused="DatePicker_Clicked" />
+                        </border:SfBorder>
                     </StackLayout>
 
                     <StackLayout Orientation="Horizontal" Margin="10,0,10,0" >
                         <Label FontSize="Large" TextColor="Black" >Sex</Label>
-                        <buttons:SfRadioButton TextColor="Black" x:Name="rdbtnMale" CheckedColor="Red" UncheckedColor="Red"   FontSize="Large" Text="Male"/>
-                        <buttons:SfRadioButton TextColor="Black" x:Name="rdbtnFemale" CheckedColor="Red" UncheckedColor="Red"  FontSize="Large" Text="Female"/>
+                        <buttons:SfRadioGroup x:Name="radioGroupSex" Orientation="Horizontal">
+                            <buttons:SfRadioButton TextColor="Black" x:Name="rdbtnMale" CheckedColor="Red" UncheckedColor="Red"   FontSize="Large" Text="Male">
+                                <buttons:SfRadioButton.Behaviors>
+                                    <CustomBehaviour:EventToCommandBehavior
+                                             EventName="StateChanged"
+                                             Command="{Binding SexChangeCommand}"
+                                             CommandParameter="{x:Reference rdbtnMale}"/>
+                                </buttons:SfRadioButton.Behaviors>
+                            </buttons:SfRadioButton>
+                            <buttons:SfRadioButton TextColor="Black" x:Name="rdbtnFemale" CheckedColor="Red" UncheckedColor="Red"  FontSize="Large" Text="Female">
+                                <buttons:SfRadioButton.Behaviors>
+                                    <CustomBehaviour:EventToCommandBehavior
+                                             EventName="StateChanged"
+                                             Command="{Binding SexChangeCommand}"
+                                             CommandParameter="{x:Reference rdbtnFemale}"/>
+                                </buttons:SfRadioButton.Behaviors>
+                            </buttons:SfRadioButton>
+                        </buttons:SfRadioGroup>
                     </StackLayout>
-
-                    <buttons:SfButton
-                        Command="{Binding SignUpCommand}"
-                        CornerRadius="20"
-                        FontFamily="{StaticResource Montserrat-SemiBold}"
-                        Style="{StaticResource SfButtonStyle}"
-                        Text="Send Otp On Mobile" WidthRequest="250" 
-                        HorizontalOptions="Center" />
-
 
                     <border:SfBorder
                         BackgroundColor="{DynamicResource Gray-White}"
-                        BorderColor="{Binding Source={x:Reference Otp}, Path=IsFocused, Converter={StaticResource ColorConverter}, ConverterParameter=3}"
+                        BorderColor="{Binding Source={x:Reference Password}, Path=IsFocused, Converter={StaticResource ColorConverter}, ConverterParameter=3}"
                         Style="{StaticResource SfBorderStyle}">
                         <control:BorderlessEntry
-                            x:Name="Otp"
-                            Placeholder="Otp"
+                            x:Name="Password"
+                            Placeholder="Password"
+                            IsPassword="True"
                             PlaceholderColor="{DynamicResource Gray-700}"
                             Style="{StaticResource EntryStyle}"
-                            Text="{Binding Name}"
+                            Text="{Binding Password}"
+                            TextColor="{DynamicResource Gray-900}" />
+                    </border:SfBorder>
+
+                    <border:SfBorder
+                        BackgroundColor="{DynamicResource Gray-White}"
+                        BorderColor="{Binding Source={x:Reference ConfirmPassword}, Path=IsFocused, Converter={StaticResource ColorConverter}, ConverterParameter=3}"
+                        Style="{StaticResource SfBorderStyle}">
+                        <control:BorderlessEntry
+                            x:Name="ConfirmPassword"
+                            Placeholder="ConfirmPassword"
+                            IsPassword="True"
+                            PlaceholderColor="{DynamicResource Gray-700}"
+                            Style="{StaticResource EntryStyle}"
+                            Text="{Binding ConfirmPassword}"
                             TextColor="{DynamicResource Gray-900}" />
                     </border:SfBorder>
 
@@ -173,7 +213,7 @@
                         CornerRadius="20"
                         FontFamily="{StaticResource Montserrat-SemiBold}"
                         Style="{StaticResource SfButtonStyle}"
-                        Text="Verify Otp and Regiter" WidthRequest="250" 
+                        Text="Regiter" WidthRequest="250" 
                         HorizontalOptions="Center" />
                 </StackLayout>
 
@@ -204,11 +244,8 @@
                         CornerRadius="4"
                         Style="{StaticResource SfFlatButtonStyle}"
                         Text="Log In" />
-
-                    
-
                 </StackLayout>
-                
+
             </StackLayout>
         </ScrollView>
     </ContentPage.Content>

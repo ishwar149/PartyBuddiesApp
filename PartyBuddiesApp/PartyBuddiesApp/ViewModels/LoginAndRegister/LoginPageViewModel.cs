@@ -1,4 +1,13 @@
-﻿using System.Threading.Tasks;
+﻿using Acr.UserDialogs;
+using PartyBuddiesApp.Validations;
+using PartyBuddiesAppDA.BusinessObjects;
+using PartyBuddiesAppDA.DataAccess;
+using Plugin.FirebasePushNotification;
+using RestSharp;
+using RestSharp.Serialization.Json;
+using System;
+using System.Net.Http;
+using System.Threading.Tasks;
 using Xamarin.Forms;
 using Xamarin.Forms.Internals;
 
@@ -11,7 +20,6 @@ namespace PartyBuddiesApp.ViewModels.LoginAndRegister
     public class LoginPageViewModel : LoginViewModel
     {
         #region Fields
-
         private string password;
 
         #endregion
@@ -87,14 +95,60 @@ namespace PartyBuddiesApp.ViewModels.LoginAndRegister
         /// Invoked when the Log In button is clicked.
         /// </summary>
         /// <param name="obj">The Object</param>
-        private void LoginClicked(object obj)
+        private async void LoginClicked(object obj)
         {
-            App.Current.MainPage = new NavigationPage(new Views.Forms.TabbedHome())
+
+            try
             {
-                BarBackgroundColor = Color.FromHex("#F24A67"),
-                BarTextColor = Color.White,
-            };
-            AddToolbarItems(App.Current.MainPage);
+                UserDialogs.Instance.ShowLoading("logging in please Wait...");
+                await Task.Delay(200);
+                Email = "ishwar3972@gmail.com";
+                Password = "Password@123";
+                //Check Validations
+                if (string.IsNullOrEmpty(Email) || string.IsNullOrEmpty(Password) || !IsValidEmail(Email))
+                {
+                    UserDialogs.Instance.Alert("Please Check Values", "Email or Password is empty or not valid", "Ok");
+                    UserDialogs.Instance.HideLoading();
+                }
+                else
+                {
+
+                    App.MessageStatus = 1;
+                    //Generate Toekn
+                    IRestResponse response = PartyBuddiesAppDA.DataAccess.UserProfileDA.GetToken(new PartyBuddiesAppDA.BusinessObjects.LoginModel() { UserName = Email, password = Password, grant_type = "password" });
+                    if (response.IsSuccessful)
+                    {
+                        App.MessageStatus = 2;
+                        UserToken userToken = GetToken(response);
+                        Application.Current.Properties["token"] = userToken.access_token;
+                        Application.Current.Properties["email"] = Email;
+                        //Update Firebase token if needed
+                        UpdateFireBaseToken();
+                        //Check if Otp Verified 
+                        IRestResponse otpResponse = UserProfileDA.IsotpVerified(new UserProfile() { Email = Email });
+                        if (otpResponse.Content == "True")
+                        {
+                            App.MessageStatus = 3;
+                            Application.Current.Properties["otpverified"] = "True";
+                            SetTabbedHomePage();
+                        }
+                        else
+                        {
+                            App.Current.MainPage = new NavigationPage(new Views.LoginAndRegister.OtpPage(Email));
+                        }
+                    }
+                    else
+                    {
+                        UserDialogs.Instance.Alert("Please Check Values", "Wrong Email or Password", "Ok");
+                    }
+                    UserDialogs.Instance.HideLoading();
+                }
+            }
+            catch (Exception ex)
+            {
+                UserDialogs.Instance.Alert($"Not Working {ex.Message}, LoginClicked,{App.MessageStatus}");
+            }
+
         }
 
         /// <summary>
@@ -127,6 +181,12 @@ namespace PartyBuddiesApp.ViewModels.LoginAndRegister
             // Do something
         }
 
+
         #endregion
+
+
+
+
+
     }
 }

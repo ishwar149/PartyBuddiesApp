@@ -280,7 +280,7 @@ namespace PartyBuddiesApp.ViewModels.Chat
         /// </summary>
         private void ItemSelected(object selectedItem)
         {
-            // Do something
+            (App.Current.MainPage as NavigationPage).PushAsync(new Views.Chat.ChatMessagePage());
         }
 
         /// <summary>

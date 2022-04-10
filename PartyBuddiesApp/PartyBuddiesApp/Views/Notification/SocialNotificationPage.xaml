@@ -33,12 +33,6 @@
                                           Command="{Binding Path=BindingContext.BackCommand, Source={x:Reference socialNotificationPage}}"/>
                     </controls:TitleView.LeadingView>
 
-                    <!-- More button -->
-                    <controls:TitleView.TrailingView>
-                        <buttons:SfButton Text="{StaticResource More}" Style="{StaticResource IconButtonStyle}" CornerRadius="4"
-                                          Command="{Binding Path=BindingContext.MenuCommand, Source={x:Reference socialNotificationPage}}" />
-                    </controls:TitleView.TrailingView>
-
                 </controls:TitleView>
                 <ContentPresenter />
 
@@ -162,14 +156,14 @@
 
                     <listView:SfListView.HeaderTemplate>
                         <DataTemplate>
-                           
-                                <Label Text="EARLIER"
+
+                            <Label Text="EARLIER"
                                        Margin="16, 0, 16, 8"
                                        TextColor="{DynamicResource Gray-900}"
                                        FontSize="12"
                                        FontFamily="{DynamicResource Montserrat-SemiBold}"
                                        HorizontalOptions="Start"/>
-                               
+
                         </DataTemplate>
                     </listView:SfListView.HeaderTemplate>
 

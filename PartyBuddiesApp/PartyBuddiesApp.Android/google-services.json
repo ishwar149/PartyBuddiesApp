@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "909413071031",
+    "project_id": "partybuddiespushnotifications",
+    "storage_bucket": "partybuddiespushnotifications.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:909413071031:android:70e8deebb08ed961f6b532",
+        "android_client_info": {
+          "package_name": "com.PartyBuddies.partybuddiesapp_1"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "909413071031-6tarnsp5om9oajm0u25al31j8su1jpns.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDrbbg_gMypCMLb_vvqa6rRW0WeNTrIClw"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "909413071031-6tarnsp5om9oajm0u25al31j8su1jpns.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

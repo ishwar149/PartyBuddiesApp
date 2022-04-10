@@ -1,4 +1,5 @@
-﻿using Xamarin.Forms.Internals;
+﻿using Acr.UserDialogs;
+using Xamarin.Forms.Internals;
 using Xamarin.Forms.Xaml;
 
 namespace PartyBuddiesApp.Views.LoginAndRegister
@@ -15,6 +16,7 @@ namespace PartyBuddiesApp.Views.LoginAndRegister
         /// </summary>
         public LoginPage()
         {
+            BindingContext = App.ViewModelLocator.LoginPageVM;
             InitializeComponent();
         }
     }

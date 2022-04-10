@@ -4,12 +4,43 @@
              xmlns:swipecards="clr-namespace:SwipeCards.Controls;assembly=SwipeCards.Controls"
              x:Class="PartyBuddiesApp.Views.Forms.SwipeHomePage">
     <ContentPage.Content>
-        <swipecards:CardStackView ItemsSource="{Binding Parties}" Padding="5" BackgroundColor="Silver">
+        <swipecards:CardStackView ItemsSource="{Binding Parties}" Padding="-15" BackgroundColor="Silver" SwipedLeftCommand="{Binding SwipedLeft}" SwipedRightCommand="{Binding SwipedRight}">
             <swipecards:CardStackView.ItemTemplate>
                 <DataTemplate>
                     <Grid HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand">
-                        <Image Aspect="AspectFill" Source="{Binding ImageUrl}" />
-                    </Grid>                   
+                        <StackLayout>
+                            <Image Aspect="AspectFill" HeightRequest="450" Source="{Binding ImageUrl}" />
+                            <StackLayout Orientation="Horizontal">
+                                <StackLayout Margin="10,0">
+                                    <StackLayout Orientation="Horizontal" >
+                                        <Label x:Name="lblNametxt" TextColor="Black" Text="Name - "></Label>
+                                        <Label x:Name="lblName" TextColor="Black" Text="{Binding OrganiserName}"></Label>
+                                    </StackLayout>
+                                    <StackLayout Orientation="Horizontal" >
+                                        <Label x:Name="lblSextxt" TextColor="Black" Text="Sex - "></Label>
+                                        <Label x:Name="lblSex" TextColor="Black" Text="{Binding Sex}"></Label>
+                                    </StackLayout>
+                                    <StackLayout Orientation="Horizontal" >
+                                        <Label x:Name="lblAgetxt" TextColor="Black" Text="Age - "></Label>
+                                        <Label x:Name="lblAge" TextColor="Black" Text="{Binding Age}"></Label>
+                                    </StackLayout>
+                                </StackLayout>
+                                <StackLayout Margin="30,0,10,0">
+                                    <StackLayout Orientation="Horizontal" >
+                                        <Label x:Name="lblPartyTypetxt" TextColor="Black" Text="Party Type - "></Label>
+                                        <Label x:Name="lblPartyTypeSex" TextColor="Black" Text="{Binding IsAlcoholic}"></Label>
+                                    </StackLayout>
+                                    <StackLayout Orientation="Horizontal" >
+                                        <Label x:Name="lblPartyDateAgetxt" TextColor="Black" Text="Party Date - "></Label>
+                                        <Label x:Name="lblPartyDateAge" TextColor="Black" Text="{Binding PartyDate}"></Label>
+                                    </StackLayout>
+                                    <Label x:Name="lblEmail" IsVisible="false" Text="{Binding OrganiserEmail}"></Label>
+                                    <Label x:Name="lblPartyID" IsVisible="false" Text="{Binding PartyID}"></Label>
+                                    <Label x:Name="lblFireBaseToken" IsVisible="false" Text="{Binding FireBaseToken}"></Label>
+                                </StackLayout>
+                            </StackLayout>
+                        </StackLayout>
+                    </Grid>
                 </DataTemplate>
             </swipecards:CardStackView.ItemTemplate>
         </swipecards:CardStackView>
